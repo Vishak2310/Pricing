@@ -16,15 +16,24 @@
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Alex+Brush&display=swap" rel="stylesheet">
     <style>
         /* --- GLOBAL STYLES & LIGHT MODE ENFORCEMENT --- */
         :root {
             color-scheme: light; /* Force browser UI elements to light mode */
         }
         
-        * { font-family: 'Inter', sans-serif; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        input, select, textarea { font-size: 16px !important; user-select: text !important; -webkit-user-select: text !important; } 
+        * { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+select,
+textarea {
+  font-size: 16px !important;
+  user-select: text !important;
+} 
         
         /* Force White Backgrounds to override Dark Reader extensions or System Dark Mode */
         body { 

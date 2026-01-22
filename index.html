@@ -1130,6 +1130,39 @@
         // FIXED: Using "toPng -> Blob" bridge which bypasses strict MIME checks in Chromium
         const nextFrame = () => new Promise(requestAnimationFrame);
 
+        function cloneNodeWithInlineStyles(source) {
+            const clone = source.cloneNode(true);
+            const sourceElements = [source, ...source.querySelectorAll('*')];
+            const cloneElements = [clone, ...clone.querySelectorAll('*')];
+            const pseudoRules = [];
+
+            sourceElements.forEach((srcEl, index) => {
+                const destEl = cloneElements[index];
+                if (!destEl) return;
+
+                const computed = getComputedStyle(srcEl);
+                for (const prop of computed) {
+                    destEl.style.setProperty(prop, computed.getPropertyValue(prop), computed.getPropertyPriority(prop));
+                }
+
+                ['::before', '::after'].forEach(pseudo => {
+                    const pseudoStyle = getComputedStyle(srcEl, pseudo);
+                    if (pseudoStyle.content && pseudoStyle.content !== 'none' && pseudoStyle.content !== 'normal') {
+                        const uid = `inline-style-${Math.random().toString(36).slice(2, 10)}`;
+                        destEl.setAttribute('data-inline-style-id', uid);
+                        const declarations = Array.from(pseudoStyle).map(prop => {
+                            const value = pseudoStyle.getPropertyValue(prop);
+                            const priority = pseudoStyle.getPropertyPriority(prop);
+                            return `${prop}:${value}${priority ? ` !${priority}` : ''};`;
+                        }).join(' ');
+                        pseudoRules.push(`[data-inline-style-id="${uid}"]${pseudo} { ${declarations} }`);
+                    }
+                });
+            });
+
+            return { clone, pseudoCssText: pseudoRules.join('\n') };
+        }
+
         async function waitForImages(node) {
             const images = Array.from(node.querySelectorAll('img'));
             if (images.length === 0) return;
@@ -1161,7 +1194,7 @@
             sandbox.style.top = '0';
             sandbox.style.zIndex = '-9999';
 
-            const clone = source.cloneNode(true);
+            const { clone, pseudoCssText } = cloneNodeWithInlineStyles(source);
             clone.style.transform = 'none';
             clone.style.margin = '0';
             clone.style.display = 'block';
@@ -1178,6 +1211,12 @@
             container.style.width = `${fixedWidth}px`;
             container.style.backgroundColor = options.backgroundColor ?? 'transparent';
             container.style.display = 'block';
+
+            if (pseudoCssText) {
+                const styleTag = document.createElement('style');
+                styleTag.textContent = pseudoCssText;
+                container.appendChild(styleTag);
+            }
 
             container.appendChild(clone);
             sandbox.appendChild(container);

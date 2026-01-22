@@ -1128,82 +1128,144 @@
 
         // 2. Main Logic: Copy to Clipboard using Off-Screen Canvas Strategy
         // FIXED: Using "toPng -> Blob" bridge which bypasses strict MIME checks in Chromium
+        const nextFrame = () => new Promise(requestAnimationFrame);
+
+        function cloneNodeWithInlineStyles(source) {
+            const clone = source.cloneNode(true);
+            const sourceElements = [source, ...source.querySelectorAll('*')];
+            const cloneElements = [clone, ...clone.querySelectorAll('*')];
+            const pseudoRules = [];
+
+            sourceElements.forEach((srcEl, index) => {
+                const destEl = cloneElements[index];
+                if (!destEl) return;
+
+                const computed = getComputedStyle(srcEl);
+                for (const prop of computed) {
+                    destEl.style.setProperty(prop, computed.getPropertyValue(prop), computed.getPropertyPriority(prop));
+                }
+
+                ['::before', '::after'].forEach(pseudo => {
+                    const pseudoStyle = getComputedStyle(srcEl, pseudo);
+                    if (pseudoStyle.content && pseudoStyle.content !== 'none' && pseudoStyle.content !== 'normal') {
+                        const uid = `inline-style-${Math.random().toString(36).slice(2, 10)}`;
+                        destEl.setAttribute('data-inline-style-id', uid);
+                        const declarations = Array.from(pseudoStyle).map(prop => {
+                            const value = pseudoStyle.getPropertyValue(prop);
+                            const priority = pseudoStyle.getPropertyPriority(prop);
+                            return `${prop}:${value}${priority ? ` !${priority}` : ''};`;
+                        }).join(' ');
+                        pseudoRules.push(`[data-inline-style-id="${uid}"]${pseudo} { ${declarations} }`);
+                    }
+                });
+            });
+
+            return { clone, pseudoCssText: pseudoRules.join('\n') };
+        }
+
+        async function waitForImages(node) {
+            const images = Array.from(node.querySelectorAll('img'));
+            if (images.length === 0) return;
+            await Promise.all(images.map(img => {
+                if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+                return new Promise(resolve => {
+                    const onDone = () => {
+                        img.removeEventListener('load', onDone);
+                        img.removeEventListener('error', onDone);
+                        resolve();
+                    };
+                    img.addEventListener('load', onDone);
+                    img.addEventListener('error', onDone);
+                });
+            }));
+        }
+
+        async function buildCardExport(cardId, options) {
+            const wrapper = document.querySelector(`[data-card-id="${cardId}"]`);
+            const source = wrapper?.classList.contains('new-preview-card') ? wrapper : wrapper?.querySelector('.new-preview-card');
+            if (!source) throw new Error("Card source not found");
+
+            const sourceRect = source.getBoundingClientRect();
+            const fixedWidth = Math.round(sourceRect.width);
+
+            const sandbox = document.createElement('div');
+            sandbox.style.position = 'fixed';
+            sandbox.style.left = '-10000px';
+            sandbox.style.top = '0';
+            sandbox.style.zIndex = '-9999';
+
+            const { clone, pseudoCssText } = cloneNodeWithInlineStyles(source);
+            clone.style.transform = 'none';
+            clone.style.margin = '0';
+            clone.style.display = 'block';
+            clone.style.zoom = '1';
+            clone.style.width = `${fixedWidth}px`;
+            clone.style.minWidth = `${fixedWidth}px`;
+            clone.style.maxWidth = `${fixedWidth}px`;
+            clone.style.contain = 'layout paint size style';
+            const paddingBuffer = 40;
+            const existingPadding = parseFloat(getComputedStyle(clone).paddingBottom) || 0;
+            clone.style.paddingBottom = `${existingPadding + paddingBuffer}px`;
+
+            const container = document.createElement('div');
+            container.style.width = `${fixedWidth}px`;
+            container.style.backgroundColor = options.backgroundColor ?? 'transparent';
+            container.style.display = 'block';
+
+            if (pseudoCssText) {
+                const styleTag = document.createElement('style');
+                styleTag.textContent = pseudoCssText;
+                container.appendChild(styleTag);
+            }
+
+            container.appendChild(clone);
+            sandbox.appendChild(container);
+            randomizeSvgIds(clone);
+            document.body.appendChild(sandbox);
+
+            await document.fonts.ready;
+            await waitForImages(clone);
+            await nextFrame();
+            await nextFrame();
+
+            const exportWidth = Math.round(clone.offsetWidth);
+            const exportHeight = Math.round(clone.scrollHeight + paddingBuffer);
+
+            container.style.width = `${exportWidth}px`;
+            container.style.height = `${exportHeight}px`;
+            clone.style.height = `${exportHeight}px`;
+            clone.style.minHeight = `${exportHeight}px`;
+            clone.style.maxHeight = `${exportHeight}px`;
+
+            const dataUrl = await htmlToImage.toPng(container, {
+                quality: 1.0,
+                pixelRatio: 2,
+                backgroundColor: options.backgroundColor ?? null,
+                width: exportWidth,
+                height: exportHeight,
+                cacheBust: true,
+                skipAutoScale: true
+            });
+
+            document.body.removeChild(sandbox);
+
+            const res = await fetch(dataUrl);
+            const buffer = await res.arrayBuffer();
+            const blob = new Blob([buffer], { type: 'image/png' });
+
+            return { dataUrl, blob };
+        }
+
         async function copyCardForLaptop(cardId) {
             const btn = document.getElementById(`btn-copy-${cardId}`);
             const originalText = btn ? btn.innerHTML : '';
             if(btn) btn.innerHTML = '  Processing...';
 
             try {
-                // Ensure fonts are ready
-                await document.fonts.ready;
+                const { blob } = await buildCardExport(cardId, { backgroundColor: '#ffffff' });
 
-                // Select Source
-                const wrapper = document.querySelector(`[data-card-id="${cardId}"]`);
-                const source = wrapper ? wrapper.querySelector('.new-preview-card') : null;
-                if (!source) throw new Error("Card source not found");
-
-                // Create Off-screen Sandbox (The "Deep Web" trick: Position Fixed + Far Left)
-                // Do NOT use display:none or visibility:hidden or opacity:0
-                const sandbox = document.createElement('div');
-                sandbox.style.position = 'fixed';
-                sandbox.style.left = '-10000px'; 
-                sandbox.style.top = '0';
-                sandbox.style.zIndex = '-9999'; 
-                
-                // Clone the card
-                const clone = source.cloneNode(true);
-
-                // Fix Styles on Clone
-                clone.style.transform = 'none'; // Remove scaling
-                clone.style.margin = '0';
-                clone.style.width = '320px';
-                clone.style.minWidth = '320px';
-                clone.style.maxWidth = '320px';
-                // Remove shadow from card itself, apply to container if needed, or rely on container padding
-                clone.style.boxShadow = 'none'; 
-
-                // Create a container to add padding (simulates the shadow cutout look)
-                // FIXED: Explicit Flexbox centering to prevent cutting off
-                const container = document.createElement('div');
-                container.style.width = '400px'; // 320 card + 40px left + 40px right
-                container.style.padding = '40px';
-                container.style.backgroundColor = '#ffffff'; // Force white background for copy
-                container.style.display = 'flex';
-                container.style.justifyContent = 'center';
-                container.style.alignItems = 'center';
-                
-                container.appendChild(clone);
-                sandbox.appendChild(container);
-
-                // Fix SVG Gradients in the clone (prevents IDs clashing with original)
-                randomizeSvgIds(clone); 
-
-                // Append to DOM to trigger browser layout calculation
-                document.body.appendChild(sandbox);
-
-                // Wait for layout thrashing (fonts/images) to settle
-                await new Promise(r => setTimeout(r, 350)); 
-
-                // Generate DataURL (PNG) first - more reliable than toBlob direct in some browsers
-                const dataUrl = await htmlToImage.toPng(container, {
-                    quality: 1.0,
-                    pixelRatio: 3, // 3x Density for Retina/WhatsApp High Quality
-                    backgroundColor: '#ffffff', // FORCE WHITE BG (Fixes WhatsApp Black Background issue)
-                    width: 400, // Explicit width
-                    cacheBust: true,
-                    skipAutoScale: true
-                });
-
-                // Clean up DOM immediately
-                document.body.removeChild(sandbox);
-
-                // Convert Base64 DataURL to Blob (The reliable bridge)
-                const res = await fetch(dataUrl);
-                const blob = await res.blob();
-
-                // Write to Clipboard
                 if (navigator.clipboard && navigator.clipboard.write) {
-                    await navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
+                    await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
                     showToast('  Copied High Quality Image!', 'success');
                 } else {
                     throw new Error("Clipboard API unavailable");
@@ -1211,7 +1273,6 @@
 
             } catch (error) {
                 console.error("Copy failed", error);
-                // Fallback: Open Modal if clipboard fails (Fail-safe for Safari/Firefox sometimes)
                 saveCardForAndroid(cardId); 
             } finally {
                 if(btn) btn.innerHTML = originalText; 
@@ -1225,52 +1286,7 @@
             if(btn) btn.innerHTML = '  Rendering...';
 
             try {
-                await document.fonts.ready;
-                
-                // Re-use logic: Select Source
-                const wrapper = document.querySelector(`[data-card-id="${cardId}"]`);
-                const source = wrapper ? wrapper.querySelector('.new-preview-card') : null;
-                if (!source) throw new Error("Card source not found");
-
-                const sandbox = document.createElement('div');
-                sandbox.style.position = 'fixed';
-                sandbox.style.left = '-10000px';
-                sandbox.style.top = '0';
-                sandbox.style.zIndex = '-9999';
-                
-                const clone = source.cloneNode(true);
-                clone.style.transform = 'none';
-                clone.style.margin = '0';
-                clone.style.width = '320px';
-                clone.style.minWidth = '320px';
-                clone.style.maxWidth = '320px';
-                // Keep nice shadow for download
-                clone.style.boxShadow = '0 25px 60px -15px rgba(0,0,0,0.5)'; 
-
-                const container = document.createElement('div');
-                container.style.width = '400px';
-                container.style.padding = '40px';
-                container.style.background = 'transparent'; // Transparent for download
-                container.style.display = 'flex';
-                container.style.justifyContent = 'center';
-                container.style.alignItems = 'center';
-                
-                container.appendChild(clone);
-                sandbox.appendChild(container);
-                randomizeSvgIds(clone);
-                document.body.appendChild(sandbox);
-
-                await new Promise(r => setTimeout(r, 350));
-
-                const dataUrl = await htmlToImage.toPng(container, {
-                    quality: 1.0,
-                    pixelRatio: 3, 
-                    backgroundColor: null, // Keep transparency for download
-                    width: 400,
-                    cacheBust: true
-                });
-
-                document.body.removeChild(sandbox);
+                const { dataUrl } = await buildCardExport(cardId, { backgroundColor: null });
 
                 const img = document.getElementById('screenshot-preview-image'); 
                 img.src = dataUrl; 

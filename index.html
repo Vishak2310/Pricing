@@ -1149,7 +1149,7 @@
 
         async function buildCardExport(cardId, options) {
             const wrapper = document.querySelector(`[data-card-id="${cardId}"]`);
-            const source = wrapper ? wrapper.querySelector('.new-preview-card') : null;
+            const source = wrapper?.classList.contains('new-preview-card') ? wrapper : wrapper?.querySelector('.new-preview-card');
             if (!source) throw new Error("Card source not found");
 
             const sourceRect = source.getBoundingClientRect();
@@ -1170,6 +1170,9 @@
             clone.style.minWidth = `${fixedWidth}px`;
             clone.style.maxWidth = `${fixedWidth}px`;
             clone.style.contain = 'layout paint size style';
+            const paddingBuffer = 40;
+            const existingPadding = parseFloat(getComputedStyle(clone).paddingBottom) || 0;
+            clone.style.paddingBottom = `${existingPadding + paddingBuffer}px`;
 
             const container = document.createElement('div');
             container.style.width = `${fixedWidth}px`;
@@ -1187,7 +1190,7 @@
             await nextFrame();
 
             const exportWidth = Math.round(clone.offsetWidth);
-            const exportHeight = Math.round(clone.scrollHeight);
+            const exportHeight = Math.round(clone.scrollHeight + paddingBuffer);
 
             container.style.width = `${exportWidth}px`;
             container.style.height = `${exportHeight}px`;

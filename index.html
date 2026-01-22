@@ -1130,9 +1130,24 @@
         // FIXED: Using "toPng -> Blob" bridge which bypasses strict MIME checks in Chromium
         const nextFrame = () => new Promise(requestAnimationFrame);
 
-        async function buildCardExport(cardId, options) {
-            await document.fonts.ready;
+        async function waitForImages(node) {
+            const images = Array.from(node.querySelectorAll('img'));
+            if (images.length === 0) return;
+            await Promise.all(images.map(img => {
+                if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+                return new Promise(resolve => {
+                    const onDone = () => {
+                        img.removeEventListener('load', onDone);
+                        img.removeEventListener('error', onDone);
+                        resolve();
+                    };
+                    img.addEventListener('load', onDone);
+                    img.addEventListener('error', onDone);
+                });
+            }));
+        }
 
+        async function buildCardExport(cardId, options) {
             const wrapper = document.querySelector(`[data-card-id="${cardId}"]`);
             const source = wrapper ? wrapper.querySelector('.new-preview-card') : null;
             if (!source) throw new Error("Card source not found");
@@ -1149,6 +1164,8 @@
             const clone = source.cloneNode(true);
             clone.style.transform = 'none';
             clone.style.margin = '0';
+            clone.style.display = 'block';
+            clone.style.zoom = '1';
             clone.style.width = `${fixedWidth}px`;
             clone.style.minWidth = `${fixedWidth}px`;
             clone.style.maxWidth = `${fixedWidth}px`;
@@ -1164,12 +1181,13 @@
             randomizeSvgIds(clone);
             document.body.appendChild(sandbox);
 
+            await document.fonts.ready;
+            await waitForImages(clone);
             await nextFrame();
             await nextFrame();
 
-            const cloneRect = clone.getBoundingClientRect();
-            const exportWidth = Math.round(cloneRect.width);
-            const exportHeight = Math.round(cloneRect.height);
+            const exportWidth = Math.round(clone.offsetWidth);
+            const exportHeight = Math.round(clone.scrollHeight);
 
             container.style.width = `${exportWidth}px`;
             container.style.height = `${exportHeight}px`;

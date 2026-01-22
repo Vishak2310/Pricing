@@ -1138,8 +1138,7 @@
             if (!source) throw new Error("Card source not found");
 
             const sourceRect = source.getBoundingClientRect();
-            const exportWidth = Math.round(sourceRect.width);
-            const exportHeight = Math.round(sourceRect.height);
+            const fixedWidth = Math.round(sourceRect.width);
 
             const sandbox = document.createElement('div');
             sandbox.style.position = 'fixed';
@@ -1150,17 +1149,13 @@
             const clone = source.cloneNode(true);
             clone.style.transform = 'none';
             clone.style.margin = '0';
-            clone.style.width = `${exportWidth}px`;
-            clone.style.height = `${exportHeight}px`;
-            clone.style.minWidth = `${exportWidth}px`;
-            clone.style.maxWidth = `${exportWidth}px`;
-            clone.style.minHeight = `${exportHeight}px`;
-            clone.style.maxHeight = `${exportHeight}px`;
+            clone.style.width = `${fixedWidth}px`;
+            clone.style.minWidth = `${fixedWidth}px`;
+            clone.style.maxWidth = `${fixedWidth}px`;
             clone.style.contain = 'layout paint size style';
 
             const container = document.createElement('div');
-            container.style.width = `${exportWidth}px`;
-            container.style.height = `${exportHeight}px`;
+            container.style.width = `${fixedWidth}px`;
             container.style.backgroundColor = options.backgroundColor ?? 'transparent';
             container.style.display = 'block';
 
@@ -1171,6 +1166,16 @@
 
             await nextFrame();
             await nextFrame();
+
+            const cloneRect = clone.getBoundingClientRect();
+            const exportWidth = Math.round(cloneRect.width);
+            const exportHeight = Math.round(cloneRect.height);
+
+            container.style.width = `${exportWidth}px`;
+            container.style.height = `${exportHeight}px`;
+            clone.style.height = `${exportHeight}px`;
+            clone.style.minHeight = `${exportHeight}px`;
+            clone.style.maxHeight = `${exportHeight}px`;
 
             const dataUrl = await htmlToImage.toPng(container, {
                 quality: 1.0,

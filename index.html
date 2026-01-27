@@ -728,13 +728,13 @@ textarea {
                     one_on_one: { beginner: 23850, adv_beginner: 23850, intermediate: 26880, adv_part_1: 33500, adv_part_2: 33500 }, 
                     regular_group: { beginner: 7650, adv_beginner: 7650, intermediate: 8200, adv_part_1: 8850, adv_part_2: 8850 }, 
                     focused_group: { beginner: 15300, adv_beginner: 15300, intermediate: 16400, adv_part_1: 17700, adv_part_2: 17700 },
-                    groupName: 'Regular Group (Max 4 Kids)', 
+                    groupName: 'Regular Group (Max 8 Kids)', 
                     groupName2: 'Focused Group (Max 4 Kids)' 
                 }, 
                 masters: { 
                     one_on_one: { sub_junior: { price_96: 174800, price_48: 87400 }, junior: { price_96: 180800, price_48: 90400 }, senior_part_1: { price_96: 190600, price_48: 95300 }, senior_part_2: { price_96: 190600, price_48: 95300 } }, 
                     group: { sub_junior: { price_96: 47900, price_48: 23950 }, junior: { price_96: 51200, price_48: 25600 }, senior_part_1: { price_96: 55000, price_48: 27500 }, senior_part_2: { price_96: 55000, price_48: 27500 } }, 
-                    groupName: 'PTP Group (Max 4 Kids)' 
+                    groupName: 'PTP Group (Max 8 Kids)' 
                 } 
             }, 
             uk: { 
@@ -1797,7 +1797,7 @@ textarea {
                     </div>
                 </div>`;
             
-            const cardsSection = `<div class="premium-card mb-6"><h2 class="section-title mb-4">  Offers</h2><div class="mb-5 bg-[var(--input-bg)] p-4 rounded-xl border border-[var(--input-border)]"><label class="block text-xs font-bold text-accent mb-2 uppercase">Completed Level:</label><select id="upsell-filter-${region}" onchange="renderFullOffers('${region}')" class="input-premium max-w-md"><option value="none">-- Select Completed Level --</option><optgroup label="Foundation">${foundationLevels.map(l => `<option value="${l}">${foundationLevelNames[l]}</option>`).join('')}</optgroup><optgroup label="Masters">${mastersLevels.map(l => `<option value="${l}">${mastersLevelNames[l]}</option>`).join('')}</optgroup></select></div><div id="offers-output-container-${region}" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div></div>`;
+            const cardsSection = `<div class="premium-card mb-6"><h2 class="section-title mb-4">  Offers</h2><div class="mb-5 bg-[var(--input-bg)] p-4 rounded-xl border border-[var(--input-border)]"><label class="block text-xs font-bold text-accent mb-2 uppercase">Starting Level:</label><select id="upsell-filter-${region}" onchange="renderFullOffers('${region}')" class="input-premium max-w-md"><option value="none">-- Select Starting Level --</option><optgroup label="Foundation">${foundationLevels.map(l => `<option value="${l}">${foundationLevelNames[l]}</option>`).join('')}</optgroup><optgroup label="Masters">${mastersLevels.map(l => `<option value="${l}">${mastersLevelNames[l]}</option>`).join('')}</optgroup></select></div><div id="offers-output-container-${region}" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div></div>`;
             
             return `
                 <div class="premium-card mb-5">
@@ -1868,14 +1868,16 @@ textarea {
 
         function renderFullOffers(region) {
             const container = document.getElementById(`offers-output-container-${region}`); 
-            const filterLevel = document.getElementById(`upsell-filter-${region}`)?.value; 
+            const filterSelect = document.getElementById(`upsell-filter-${region}`);
+            let filterLevel = filterSelect?.value; 
             const currentClassType = document.querySelector(`input[name="class-type-global-${region}"]:checked`)?.value;
             
             if(!container || !filterLevel || !currentClassType) return;
             
-            if(filterLevel === 'none') { 
-                container.innerHTML = `<div class="col-span-1 md:col-span-2 text-center p-10 text-secondary italic border border-[var(--input-border)] rounded-xl bg-[rgba(125,125,125,0.05)]">Please select the student's <strong>Completed Level</strong> above to see offer stacks.</div>`; 
-                return; 
+            if(filterLevel === 'none') {
+                // Default to Beginner so you can see the first level details immediately
+                filterLevel = 'beginner';
+                if(filterSelect) filterSelect.value = 'beginner';
             }
             
             // LOGIC FIX FOR INDIA: Foundation Regular vs Focused vs One-on-One
@@ -1890,7 +1892,7 @@ textarea {
             const fdKey = currentClassType === 'one_on_one' ? 'one_on_one' : (region==='in'?'regular_group':'group'); 
             const msKey = currentClassType === 'one_on_one' ? 'one_on_one' : 'group';
             
-            let html = '', startSequenceIndex = (filterLevel === 'all') ? 0 : fullLevelSequence.findIndex(item => item.key === filterLevel) + 1;
+            let html = '', startSequenceIndex = (filterLevel === 'all') ? 0 : fullLevelSequence.findIndex(item => item.key === filterLevel);
             
             if (startSequenceIndex === -1 || startSequenceIndex >= fullLevelSequence.length) { 
                 container.innerHTML = `<div class="col-span-2 text-center p-10 text-secondary italic">No further levels available.</div>`; 
@@ -1908,7 +1910,8 @@ textarea {
         }
 
         function recalcFullOffers(region) {
-            const filterLevel = document.getElementById(`upsell-filter-${region}`)?.value; 
+            const filterSelect = document.getElementById(`upsell-filter-${region}`);
+            let filterLevel = filterSelect?.value; 
             const currentClassType = document.querySelector(`input[name="class-type-global-${region}"]:checked`)?.value;
             
             if(!filterLevel || filterLevel === 'none' || !currentClassType) return;
@@ -1923,7 +1926,7 @@ textarea {
             
             const fdKey = currentClassType === 'one_on_one' ? 'one_on_one' : (region==='in'?'regular_group':'group'); 
             const msKey = currentClassType === 'one_on_one' ? 'one_on_one' : 'group';
-            let startSequenceIndex = (filterLevel === 'all') ? 0 : fullLevelSequence.findIndex(item => item.key === filterLevel) + 1;
+            let startSequenceIndex = (filterLevel === 'all') ? 0 : fullLevelSequence.findIndex(item => item.key === filterLevel);
             
             let cardCount = 0;
             for (let i = startSequenceIndex; i < fullLevelSequence.length; i++) {

@@ -1,14 +1,15 @@
+<!-- START OF FILE Upstep Global V108.44.html -->
 <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover'/>
 <!DOCTYPE html>
 <html lang="en" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="color-scheme" content="light">
-    <title>Upstep Global - Premium Tool V108.18 (UI Polish & Dark Mode Fix)</title>
+    <title>Upstep Global - Premium Tool V108.44 (USA/WW Price Fixed)</title>
     <script>
         window.tailwind = {
             config: {
-                darkMode: 'class', // Disable auto dark mode based on system
+                darkMode: 'class',
                 theme: { extend: {} },
                 corePlugins: { preflight: true }
             }
@@ -17,9 +18,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
     <style>
-        /* --- GLOBAL STYLES & LIGHT MODE ENFORCEMENT --- */
         :root {
-            color-scheme: light; /* Force browser UI elements to light mode */
+            color-scheme: light;
         }
         
         * { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
@@ -35,7 +35,6 @@ textarea {
   user-select: text !important;
 } 
         
-        /* Force White Backgrounds to override Dark Reader extensions or System Dark Mode */
         body { 
             min-height: 100vh; 
             position: relative; 
@@ -45,6 +44,17 @@ textarea {
             transition: background 0.5s ease;
         }
 
+        .flag-img {
+            display: inline-block;
+            vertical-align: middle;
+            width: 24px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-right: 8px;
+            margin-bottom: 3px;
+        }
+        
         .skip-link {
             position: absolute;
             top: -40px;
@@ -73,7 +83,6 @@ textarea {
         .signature-name { font-size: 1.8rem; color: var(--accent); line-height: 1; }
 
         :root {
-            /* --- DEFAULT: GRANDMASTER'S LEGACY (Orange/White/Royal Blue) --- */
             --bg-grad: linear-gradient(180deg, #fdfbf7 0%, #fff7ed 100%);
             --bg-overlay: radial-gradient(circle at 50% 0%, rgba(249, 115, 22, 0.05) 0%, transparent 60%);
             --accent: #f97316; 
@@ -108,18 +117,15 @@ textarea {
             --logo-sun: #f97316; 
             --logo-piece: #1e3a8a;
             
-            /* Discount Colors */
             --add-save-color: #3b82f6; 
             --ref-save-color: #ec4899; 
             --save-color: #10b981; 
 
-            /* --- PREVIEW CARD VARIABLES --- */
             --prev-bg: linear-gradient(145deg, #fffbeb 0%, #fff7ed 100%);
             --prev-border: rgba(249, 115, 22, 0.3);
             --prev-accent: #f97316;
             --prev-accent-glow: rgba(249, 115, 22, 0.2);
             
-            /* Dynamic Text Colors for Preview */
             --prev-text-main: #1e3a8a;
             --prev-text-sec: #475569;
             --prev-text-muted: #94a3b8;
@@ -136,7 +142,6 @@ textarea {
             --ref-txt: #ffffff;
         }
 
-        /* STRIKETHROUGH STYLE */
         .strike-slim {
             text-decoration: line-through;
             text-decoration-color: #ef4444; 
@@ -145,7 +150,6 @@ textarea {
             font-weight: 700;
         }
 
-        /* DATE PICKER FIX - Light Theme */
         input[type="date"]::-webkit-calendar-picker-indicator {
             filter: invert(0);
             opacity: 0.6;
@@ -156,7 +160,6 @@ textarea {
             opacity: 1;
         }
 
-        
         .chess-essence { 
             position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
             width: 80vh; height: 80vh; pointer-events: none; z-index: 0; opacity: 0.03; 
@@ -175,7 +178,7 @@ textarea {
 
         .text-primary { color: var(--text-1); } .text-secondary { color: var(--text-2); } .text-accent { color: var(--accent); }
         .region-nav { backdrop-filter: blur(10px); border-radius: 99px; padding: 6px; transition: all 0.3s ease; background: rgba(125,125,125,0.05); border: 1px solid var(--card-border); display: inline-block; width: auto; min-width: 100%; text-align: center; }
-        .region-pill { padding: 8px 18px; border-radius: 99px; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.5px; transition: all 0.3s ease; background: transparent; border: 1px solid transparent; cursor: pointer; color: var(--text-2); text-transform: uppercase; }
+        .region-pill { padding: 8px 18px; border-radius: 99px; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.5px; transition: all 0.3s ease; background: transparent; border: 1px solid transparent; cursor: pointer; color: var(--text-2); text-transform: uppercase; display: inline-flex; align-items: center; }
         .region-pill:hover { color: var(--pill-hover); }
         .region-pill.active { background: var(--btn-active); color: #fff; font-weight: 800; border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
         
@@ -299,12 +302,10 @@ textarea {
         .close { color: var(--text-2); font-size: 24px; cursor: pointer; transition: color 0.3s; } .close:hover { color: var(--accent); }
         .modal-body { padding: 24px; line-height: 1.6; font-size: 0.9rem; color: var(--text-2); }
         
-        .ss-action-btn { padding: 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 6px; border: 1px solid; }
+        .ss-action-btn { padding: 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 6px; border: 1px solid; width: 100%; }
         .btn-copy-pc { background: var(--input-bg); border-color: var(--accent); color: var(--accent); }
         .btn-copy-pc:hover { background: var(--badge-lvl-bg); box-shadow: 0 0 10px var(--accent-glow); }
-        .btn-save-android { background: var(--btn-active); border-color: transparent; color: white; }
-        .btn-save-android:hover { opacity: 0.9; box-shadow: 0 0 10px var(--accent-glow); }
-
+        
         #screenshot-preview-modal .modal-content { background: #0f172a; max-width: 90%; width: auto; display: inline-block; text-align: center; }
         #screenshot-preview-image { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
 
@@ -586,6 +587,72 @@ textarea {
         }
         .add-remove-btn:hover { border-color: var(--accent); color: var(--accent); }
 
+        /* --- DETAILED TIMELINE PREVIEW STYLES (NEW) --- */
+        .roadmap-step {
+            display: flex;
+            align-items: stretch; /* Stretch to accommodate line */
+            margin-bottom: 0; /* Remove default margin to control via gap */
+            position: relative;
+        }
+        
+        .roadmap-line-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 12px;
+            min-width: 16px;
+        }
+        
+        .roadmap-dot {
+            width: 10px; height: 10px; background: var(--prev-accent);
+            border-radius: 50%; box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+            z-index: 2; margin-top: 14px; /* Align with text */
+        }
+        
+        .roadmap-line {
+            flex-grow: 1; width: 2px; background: linear-gradient(180deg, var(--prev-accent) 0%, rgba(249, 115, 22, 0.1) 100%);
+            margin-top: 2px; margin-bottom: -6px; /* Connect to next */
+        }
+        
+        .roadmap-step:last-child .roadmap-line {
+            background: linear-gradient(180deg, var(--prev-accent) 0%, transparent 100%);
+            height: 15px; flex-grow: 0; /* Fade out last line */
+        }
+
+        .roadmap-content {
+            background: var(--prev-glass-bg);
+            border: 1px solid var(--prev-glass-border);
+            border-radius: 10px;
+            padding: 10px;
+            flex-grow: 1;
+            margin-bottom: 10px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .roadmap-label { font-size: 11px; font-weight: 800; color: var(--prev-text-main); text-transform: uppercase; letter-spacing: 0.5px; }
+        .roadmap-date { font-size: 9px; font-weight: 600; color: var(--prev-text-sec); display: flex; align-items: center; gap: 4px; }
+        .roadmap-price { font-size: 18px; font-weight: 900; color: var(--prev-accent); font-family: monospace; letter-spacing: -0.5px; line-height: 1; }
+        
+        /* UPDATED STRIKETHROUGH STYLE - ULTRA THIN AND CLEAR */
+        .strike-small { 
+            font-size: 9px; 
+            text-decoration: line-through; 
+            text-decoration-color: rgba(239, 68, 68, 0.6); /* Semi-transparent red */
+            text-decoration-thickness: 0.5px; /* Extremely thin */
+            color: #94a3b8; 
+            font-weight: 600; 
+            margin-right: 4px; 
+            opacity: 0.7;
+        }
+        
+        .roadmap-save-badge-static {
+            background: #10b981; color: white; padding: 3px 8px; border-radius: 4px;
+            font-size: 9px; font-weight: 800; text-transform: uppercase; display: inline-block;
+        }
+
         @media (max-width: 768px) { .premium-card { padding: 20px; } }
     </style>
 </head>
@@ -601,7 +668,7 @@ textarea {
                 </div>
                 <div>
                     <h1 class="text-xl font-black text-primary tracking-tight uppercase premium-brand" style="font-family: 'Cinzel', serif;">Upstep Global</h1>
-                    <p class="text-[0.65rem] text-accent font-bold tracking-[0.2em] uppercase opacity-80">Premium V108.18</p>
+                    <p class="text-[0.65rem] text-accent font-bold tracking-[0.2em] uppercase opacity-80">Premium V108.44</p>
                 </div>
             </div>
         </div>
@@ -651,6 +718,19 @@ textarea {
             masters: ["Advanced training for professional level", "Calculation skills for 4-10 move foresight", "Target FIDE ratings of 1350-1800", "Strategies from world champions", "Live play with real-time feedback"],
             masters_one_on_one_exclusive: ["Free tournament entry for masters"]
         };
+        
+        // --- REGIONAL DEFAULT REFERRAL AMOUNTS ---
+        const referralDefaults = {
+            in: 500,    // India
+            uae: 50,    // UAE
+            uk: 12,     // UK
+            eur: 20,    // Europe
+            usa: 14,    // USA
+            sgd: 20,    // Singapore
+            aus: 20,    // Australia
+            can: 20,    // Canada (Approx USD match)
+            ww: 14      // Worldwide (USD match)
+        };
 
         const foundationLevels = ['beginner', 'adv_beginner', 'intermediate', 'adv_part_1', 'adv_part_2'];
         const foundationLevelNames = { beginner: 'Beginner', adv_beginner: 'Advanced Beginner', intermediate: 'Intermediate', adv_part_1: 'Advanced Part 1', adv_part_2: 'Advanced Part 2' };
@@ -661,17 +741,23 @@ textarea {
             ...foundationLevels.map(key => ({ key, name: foundationLevelNames[key], type: 'foundation' })),
             ...mastersLevels.map(key => ({ key, name: mastersLevelNames[key], type: 'masters' }))
         ];
+        
+        const regionCodeMap = {
+            uae: 'UAE', in: 'IND', uk: 'UK', eur: 'EUR', sgd: 'SIN',
+            aus: 'AUS', can: 'CAN', usa: 'USA', ww: 'WW', qat: 'QAT', kwd: 'KWD', sar: 'SAR'
+        };
 
+        // FIXED REGION NAMES (Flag IMG Tags properly structured)
         const regionNames = { 
-            uae: '🇦🇪 UAE', 
-            in: '🇮🇳 India', 
-            uk: '🇬🇧 UK', 
-            eur: '🇪🇺 Europe', 
-            sgd: '🇸🇬 Singapore', 
-            aus: '🇦🇺 Australia', 
-            can: '🇨🇦 Canada', 
-            usa: '🇺🇸 USA', 
-            ww: '🌍 Worldwide' 
+            uae: '<img src="https://flagcdn.com/24x18/ae.png" class="flag-img"> UAE', 
+            in: '<img src="https://flagcdn.com/24x18/in.png" class="flag-img"> India', 
+            uk: '<img src="https://flagcdn.com/24x18/gb.png" class="flag-img"> UK', 
+            eur: '<img src="https://flagcdn.com/24x18/eu.png" class="flag-img"> Europe', 
+            sgd: '<img src="https://flagcdn.com/24x18/sg.png" class="flag-img"> Singapore', 
+            aus: '<img src="https://flagcdn.com/24x18/au.png" class="flag-img"> Australia', 
+            can: '<img src="https://flagcdn.com/24x18/ca.png" class="flag-img"> Canada', 
+            usa: '<img src="https://flagcdn.com/24x18/us.png" class="flag-img"> USA', 
+            ww: '<img src="https://flagcdn.com/24x18/un.png" class="flag-img"> Worldwide' 
         };
         
         const icons = {
@@ -688,26 +774,28 @@ textarea {
 
         const couponTypes = ['LOYALTY', 'UPI DISCOUNT', 'CUSTOM', 'EARLY', 'FESTIVE', 'BUNDLE', 'SPECIAL', 'FLASH', 'SUMMER', 'WINTER', 'WEEKEND', 'WELCOME'];
         const discountLabels = ['Management Discount', 'Sales Head Discount', 'Director Discount', 'VP Discount', 'CEO Special Discount', 'Executive Approval', 'CUSTOM'];
+        
         const conversionCurrencies = { 
-            'uae': { code: 'AED', symbol: 'AED ', emoji: '🇦🇪', name: 'UAE' }, 
-            'in': { code: 'INR', symbol: '₹', emoji: '🇮🇳', name: 'India' }, 
-            'uk': { code: 'GBP', symbol: '£', emoji: '🇬🇧', name: 'UK' }, 
-            'eur': { code: 'EUR', symbol: '€', emoji: '🇪🇺', name: 'Europe' }, 
-            'sgd': { code: 'SGD', symbol: 'S$', emoji: '🇸🇬', name: 'Singapore' }, 
-            'aus': { code: 'AUD', symbol: 'A$', emoji: '🇦🇺', name: 'Australia' }, 
-            'can': { code: 'CAD', symbol: 'C$', emoji: '🇨🇦', name: 'Canada' }, 
-            'usa': { code: 'USD', symbol: '$', emoji: '🇺🇸', name: 'USA' }, 
-            'qat': { code: 'QAR', symbol: 'QAR ', emoji: '🇶🇦', name: 'Qatar' }, 
-            'kwd': { code: 'KWD', symbol: 'KWD ', emoji: '🇰🇼', name: 'Kuwait' }, 
-            'sar': { code: 'SAR', symbol: 'SAR ', emoji: '🇸🇦', name: 'Saudi Arabia' }, 
-            'bhd': { code: 'BHD', symbol: 'BHD ', emoji: '🇧🇭', name: 'Bahrain' }, 
-            'omr': { code: 'OMR', symbol: 'OMR ', emoji: '🇴🇲', name: 'Oman' }, 
-            'zaf': { code: 'ZAR', symbol: 'R', emoji: '🇿🇦', name: 'South Africa' }, 
-            'swe': { code: 'SEK', symbol: 'kr', emoji: '🇸🇪', name: 'Sweden' }, 
-            'ww': { code: 'USD', symbol: '$', emoji: '🌍', name: 'Worldwide' } 
+            'uae': { code: 'AED', symbol: 'AED ', emoji: '<img src="https://flagcdn.com/24x18/ae.png" class="flag-img">', name: 'UAE' }, 
+            'in': { code: 'INR', symbol: '₹', emoji: '<img src="https://flagcdn.com/24x18/in.png" class="flag-img">', name: 'India' }, 
+            'uk': { code: 'GBP', symbol: '£', emoji: '<img src="https://flagcdn.com/24x18/gb.png" class="flag-img">', name: 'UK' }, 
+            'eur': { code: 'EUR', symbol: '€', emoji: '<img src="https://flagcdn.com/24x18/eu.png" class="flag-img">', name: 'Europe' }, 
+            'sgd': { code: 'SGD', symbol: 'S$', emoji: '<img src="https://flagcdn.com/24x18/sg.png" class="flag-img">', name: 'Singapore' }, 
+            'aus': { code: 'AUD', symbol: 'A$', emoji: '<img src="https://flagcdn.com/24x18/au.png" class="flag-img">', name: 'Australia' }, 
+            'can': { code: 'CAD', symbol: 'C$', emoji: '<img src="https://flagcdn.com/24x18/ca.png" class="flag-img">', name: 'Canada' }, 
+            'usa': { code: 'USD', symbol: '$', emoji: '<img src="https://flagcdn.com/24x18/us.png" class="flag-img">', name: 'USA' }, 
+            'qat': { code: 'QAR', symbol: 'QAR ', emoji: '<img src="https://flagcdn.com/24x18/qa.png" class="flag-img">', name: 'Qatar' }, 
+            'kwd': { code: 'KWD', symbol: 'KWD ', emoji: '<img src="https://flagcdn.com/24x18/kw.png" class="flag-img">', name: 'Kuwait' }, 
+            'sar': { code: 'SAR', symbol: 'SAR ', emoji: '<img src="https://flagcdn.com/24x18/sa.png" class="flag-img">', name: 'Saudi Arabia' }, 
+            'bhd': { code: 'BHD', symbol: 'BHD ', emoji: '<img src="https://flagcdn.com/24x18/bh.png" class="flag-img">', name: 'Bahrain' }, 
+            'omr': { code: 'OMR', symbol: 'OMR ', emoji: '<img src="https://flagcdn.com/24x18/om.png" class="flag-img">', name: 'Oman' }, 
+            'zaf': { code: 'ZAR', symbol: 'R', emoji: '<img src="https://flagcdn.com/24x18/za.png" class="flag-img">', name: 'South Africa' }, 
+            'swe': { code: 'SEK', symbol: 'kr', emoji: '<img src="https://flagcdn.com/24x18/se.png" class="flag-img">', name: 'Sweden' }, 
+            'ww': { code: 'USD', symbol: '$', emoji: '<img src="https://flagcdn.com/24x18/un.png" class="flag-img">', name: 'Worldwide' } 
         };
         
-        // --- AUDITED PRICING DATA (V108.17 - WW FIXED) ---
+        // --- AUDITED PRICING DATA (V108.44) ---
+        // PERFECTLY MATCHED TO THE SCREENSHOTS
         const allPrices = { 
             uae: { 
                 currency: 'AED', 
@@ -734,7 +822,7 @@ textarea {
                 masters: { 
                     one_on_one: { sub_junior: { price_96: 174800, price_48: 87400 }, junior: { price_96: 180800, price_48: 90400 }, senior_part_1: { price_96: 190600, price_48: 95300 }, senior_part_2: { price_96: 190600, price_48: 95300 } }, 
                     group: { sub_junior: { price_96: 47900, price_48: 23950 }, junior: { price_96: 51200, price_48: 25600 }, senior_part_1: { price_96: 55000, price_48: 27500 }, senior_part_2: { price_96: 55000, price_48: 27500 } }, 
-                    groupName: 'PTP Group (Max 8 Kids)' 
+                    groupName: 'PTP Group (Max 4 Kids)' 
                 } 
             }, 
             uk: { 
@@ -772,7 +860,7 @@ textarea {
                 }, 
                 masters: { 
                     one_on_one: { sub_junior: { price_96: 3000, price_48: 1500 }, junior: { price_96: 3100, price_48: 1550 }, senior_part_1: { price_96: 3250, price_48: 1625 }, senior_part_2: { price_96: 3250, price_48: 1625 } }, 
-                    group: { sub_junior: { price_96: 1750, price_48: 875 }, junior: { price_96: 1830, price_48: 915 }, senior_part_1: { price_96: 1940, price_48: 970 }, senior_part_2: { price_96: 1940, price_48: 970 } }, 
+                    group: { sub_junior: { price_96: 1730, price_48: 865 }, junior: { price_96: 1810, price_48: 905 }, senior_part_1: { price_96: 1920, price_48: 960 }, senior_part_2: { price_96: 1920, price_48: 960 } }, 
                     groupName: 'BTP Group (3-4 Kids)' 
                 } 
             }, 
@@ -810,8 +898,10 @@ textarea {
                     groupName: 'Focused Group (4 Kids)' 
                 }, 
                 masters: { 
-                    one_on_one: { sub_junior: { price_96: 2990, price_48: 1495 }, junior: { price_96: 3100, price_48: 1550 }, senior_part_1: { price_96: 3260, price_48: 1630 }, senior_part_2: { price_96: 3260, price_48: 1630 } }, 
-                    group: { sub_junior: { price_96: 1750, price_48: 875 }, junior: { price_96: 1830, price_48: 915 }, senior_part_1: { price_96: 1940, price_48: 970 }, senior_part_2: { price_96: 1940, price_48: 970 } }, 
+                    // FIXED PRICES AS PER USA PDF PAGE 178 (1-on-1)
+                    one_on_one: { sub_junior: { price_96: 2970, price_48: 1485 }, junior: { price_96: 3080, price_48: 1540 }, senior_part_1: { price_96: 3240, price_48: 1620 }, senior_part_2: { price_96: 3240, price_48: 1620 } }, 
+                    // FIXED PRICES AS PER USA PDF PAGE 179 (Group)
+                    group: { sub_junior: { price_96: 1730, price_48: 865 }, junior: { price_96: 1810, price_48: 905 }, senior_part_1: { price_96: 1920, price_48: 960 }, senior_part_2: { price_96: 1920, price_48: 960 } }, 
                     groupName: 'BTP Group (3-4 Kids)' 
                 } 
             }, 
@@ -823,7 +913,9 @@ textarea {
                     groupName: 'Focused Group (4 Kids)' 
                 }, 
                 masters: { 
+                    // FIXED PRICES AS PER WW PDF PAGE 134 (1-on-1)
                     one_on_one: { sub_junior: { price_96: 2990, price_48: 1495 }, junior: { price_96: 3100, price_48: 1550 }, senior_part_1: { price_96: 3260, price_48: 1630 }, senior_part_2: { price_96: 3260, price_48: 1630 } }, 
+                    // FIXED PRICES AS PER WW PDF PAGE 135 (Group)
                     group: { sub_junior: { price_96: 1750, price_48: 875 }, junior: { price_96: 1830, price_48: 915 }, senior_part_1: { price_96: 1940, price_48: 970 }, senior_part_2: { price_96: 1940, price_48: 970 } }, 
                     groupName: 'BTP Group (3-4 Kids)' 
                 } 
@@ -851,34 +943,33 @@ textarea {
         
         let apGlobalState = {
             rawInput: '', targetRegion: 'uae', classType: 'one_on_one', bundleMode: '3', customCount: 1, isParsed: false, detectedLevelIndex: -1, customerName: 'Student',
-            oppMode: 'parent' // 'parent' (predict next) or 'current' (exact match)
+            oppMode: 'parent', 
+            referralAmount: '',
+            referralEnabled: false 
         };
 
-        // --- CONTROLLERS ---
         const StudentNameController = {
             init: function(region, tabType) {
                 const rs = getRegionState(region);
                 if (!rs.studentName) {
                     rs.studentName = { 
-                        full: { name: 'Johnathan Doe', show: true },
-                        compare: { name: 'Johnathan Doe', show: true },
-                        foundation: { name: 'Johnathan Doe', show: true },
-                        masters: { name: 'Johnathan Doe', show: true },
-                        autoPricer: { name: apGlobalState.customerName, show: true }
+                        full: { name: 'Johnathan Doe', show: false }, 
+                        foundation: { name: 'Johnathan Doe', show: false }, 
+                        masters: { name: 'Johnathan Doe', show: false }, 
+                        autoPricer: { name: apGlobalState.customerName, show: false } 
                     };
                 }
             },
             getStudentName: function(region, tabType) { const rs = getRegionState(region); return rs.studentName?.[tabType]?.name || 'Johnathan Doe'; },
-            setStudentName: function(region, tabType, name) { const rs = getRegionState(region); if(!rs.studentName) rs.studentName={}; if(!rs.studentName[tabType]) rs.studentName[tabType]={name:'Johnathan Doe',show:true}; rs.studentName[tabType].name=name; if(tabType==='full') recalcFullOffers(region); else if(tabType==='foundation'||tabType==='masters') calculateCustomPackage(region,tabType); else if(tabType==='compare') updateCompareTab(region); else if(tabType==='autoPricer') updateAPState('rawInput',apGlobalState.rawInput); },
-            getShowStudentName: function(region, tabType) { const rs = getRegionState(region); return rs.studentName?.[tabType]?.show ?? true; },
-            setShowStudentName: function(region, tabType, show) { const rs = getRegionState(region); if(!rs.studentName) rs.studentName={}; if(!rs.studentName[tabType]) rs.studentName[tabType]={name:'Johnathan Doe',show:true}; rs.studentName[tabType].show=show; if(tabType==='full') recalcFullOffers(region); else if(tabType==='foundation'||tabType==='masters') calculateCustomPackage(region,tabType); else if(tabType==='compare') updateCompareTab(region); else if(tabType==='autoPricer') updateAPState('rawInput',apGlobalState.rawInput); },
+            setStudentName: function(region, tabType, name) { const rs = getRegionState(region); if(!rs.studentName) rs.studentName={}; if(!rs.studentName[tabType]) rs.studentName[tabType]={name:'Johnathan Doe',show:false}; rs.studentName[tabType].name=name; if(tabType==='full') recalcFullOffers(region); else if(tabType==='foundation'||tabType==='masters') calculateCustomPackage(region,tabType); else if(tabType==='autoPricer') updateAPState('rawInput',apGlobalState.rawInput); },
+            getShowStudentName: function(region, tabType) { const rs = getRegionState(region); return rs.studentName?.[tabType]?.show ?? false; },
+            setShowStudentName: function(region, tabType, show) { const rs = getRegionState(region); if(!rs.studentName) rs.studentName={}; if(!rs.studentName[tabType]) rs.studentName[tabType]={name:'Johnathan Doe',show:false}; rs.studentName[tabType].show=show; if(tabType==='full') recalcFullOffers(region); else if(tabType==='foundation'||tabType==='masters') calculateCustomPackage(region,tabType); else if(tabType==='autoPricer') updateAPState('rawInput',apGlobalState.rawInput); },
             renderControls: function(region, tabType) {
                 const name = this.getStudentName(region, tabType); const show = this.getShowStudentName(region, tabType);
-                return `<div class="student-name-controls"><div class="student-name-toggle"><label class="flex items-center gap-2 cursor-pointer"><label class="toggle-switch"><input type="checkbox" ${show ? 'checked' : ''} onchange="StudentNameController.setShowStudentName('${region}', '${tabType}', this.checked)"><span class="toggle-slider"></span></label><span class="text-xs font-bold text-accent uppercase">Show Student Name</span></label></div><div class="student-name-input-group"><input type="text" value="${name}" oninput="StudentNameController.setStudentName('${region}', '${tabType}', this.value)" class="input-premium flex-grow" placeholder="Enter student name"></div></div>`;
+                return `<div class="student-name-controls"><div class="student-name-toggle"><label class="flex items-center gap-2 cursor-pointer"><label class="toggle-switch"><input type="checkbox" id="student-name-toggle-${tabType}-${region}" ${show ? 'checked' : ''} onchange="StudentNameController.setShowStudentName('${region}', '${tabType}', this.checked)"><span class="toggle-slider"></span></label><span class="text-xs font-bold text-accent uppercase">Show Student Name</span></label></div><div class="student-name-input-group"><input type="text" id="student-name-input-${tabType}-${region}" value="${name}" oninput="StudentNameController.setStudentName('${region}', '${tabType}', this.value)" class="input-premium flex-grow" placeholder="Enter student name"></div></div>`;
             }
         };
 
-        // --- NEW PREVIEW GENERATOR (Simplified for Single Theme) ---
         function generateNewPreviewHTML(options) {
             const { region, idPrefix, studentName, showStudentName, classType, levels = [], totalSessions = 0, totalMonths = 0, benefits = [], priceDetails = {}, currency = '$', couponCode = '', expiry = '', title = '', levelCount = 0, bannerSettings = { showBanner: false, bannerText: '' }, showDiscountPercent = false, priceLabelType = 'TOTAL INVESTMENT', showPPC = false, conversion = { enabled: false, targetCurrency: '', rate: 1, symbol: '' }, referralSettings = { show: true, amount: '' }, roadmapSettings = { show: false, rows: [] } } = options;
 
@@ -886,17 +977,16 @@ textarea {
             const typeText = isOneOnOne ? '1-ON-1 MASTERY' : 'INTENSIVE GROUP';
             const typeClass = isOneOnOne ? 'type-badge' : 'type-badge group';
             
-            // Currency Handling
             let finalCurrency = currency;
             let displayFullPrice = priceDetails.fullPrice;
             let displayFinalPrice = priceDetails.finalPrice;
             let displaySavings = displayFullPrice - displayFinalPrice;
             let displayNormalSave = priceDetails.discounts.normalValue || 0;
             let displayMgmtSave = priceDetails.discounts.mgmtValue || 0;
+            
             let displayRefSave = priceDetails.discounts.referralValue || 0;
             let ppcValue = totalSessions > 0 ? displayFinalPrice / totalSessions : 0;
             
-            // For secondary display (Dual Currency Logic)
             let originalFinalPrice = priceDetails.finalPrice;
             let originalCurrency = allPrices[region].currency;
 
@@ -911,7 +1001,6 @@ textarea {
             const formatCurrencyDecimal = (value) => `${finalCurrency}${Math.abs(value).toLocaleString(finalCurrency === ' ' ? 'en-IN' : undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
             const formatOriginal = (value) => `${originalCurrency}${Math.floor(Math.abs(value)).toLocaleString(originalCurrency === ' ' ? 'en-IN' : undefined)}`;
             
-            // Generate level rows (V108.9.4: Clean row layout)
             let levelRowsHTML = '';
             if (levels.length > 0) {
                 levels.forEach(level => { 
@@ -923,33 +1012,28 @@ textarea {
                 });
             } else { levelRowsHTML = '<div class="text-center text-black/30 italic py-4 text-[10px]">No levels selected</div>'; }
             
-            // Generate benefits HTML
             let benefitsHTML = '';
             if (benefits.length > 0) {
                 benefitsHTML += `<div style="display:flex; flex-direction:column; gap:4px;">`;
-                benefits.forEach(benefit => { benefitsHTML += `<div style="display:flex; align-items:start; gap:6px;"><svg class="w-3 h-3 mt-0.5 flex-shrink-0" style="color:var(--prev-accent);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span style="font-size:10px; color:var(--prev-text-sec); font-weight:500; line-height:1.4;">${benefit}</span></div>`; });
+                benefits.forEach(benefit => { benefitsHTML += `<div style="display:flex; align-items:start; gap:6px;"><svg class="w-3 h-3 mt-0.5 flex-shrink-0" style="color:var(--prev-accent);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span style="font-size:10px; color:var(--prev-text-sec); font-weight:500; line-height:1.4;">${benefit}</span></div>`; });
                 benefitsHTML += `</div>`;
             }
             
-            // Generate discount rows
             let discountRowsHTML = '';
             const discounts = priceDetails.discounts;
-            // FIXED: Using showDiscountPercent toggle check
             const pStr = (val) => showDiscountPercent ? ` <span style="color:var(--prev-accent); font-size:11px; font-weight:800;">(${Number(val).toFixed(0)}%)</span>` : '';
 
             if (discounts.normal > 0) discountRowsHTML += `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;"><span style="font-size:11px; color:#34d399; font-weight:600;">Coupon Discount${pStr(discounts.normal)}</span><span style="font-size:11px; font-family:monospace; color:#34d399; font-weight:700;">- ${formatCurrency(displayNormalSave)}</span></div>`;
             if (discounts.mgmt > 0) discountRowsHTML += `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;"><span style="font-size:11px; color:var(--prev-accent); font-weight:600;">Management Approval${pStr(discounts.mgmt)}</span><span style="font-size:11px; font-family:monospace; color:var(--prev-accent); font-weight:700;">- ${formatCurrency(displayMgmtSave)}</span></div>`;
-            if (discounts.referral > 0) discountRowsHTML += `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;"><span style="font-size:11px; color:#f472b6; font-weight:600;">Referral Bonus${pStr(discounts.referral)}</span><span style="font-size:11px; font-family:monospace; color:#f472b6; font-weight:700;">- ${formatCurrency(displayRefSave)}</span></div>`;
+            if (displayRefSave > 0) discountRowsHTML += `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;"><span style="font-size:11px; color:#f472b6; font-weight:600;">Referral Bonus</span><span style="font-size:11px; font-family:monospace; color:#f472b6; font-weight:700;">- ${formatCurrency(displayRefSave)}</span></div>`;
             
             let bannerHTML = (bannerSettings.showBanner && bannerSettings.bannerText) ? `<div class="new-preview-ribbon">${bannerSettings.bannerText}</div>` : '';
             const tcHtml = `<div style="margin-top:10px; font-size:8px; color:var(--prev-text-muted); font-weight:600; text-transform:uppercase; letter-spacing:1px; text-align:center;">* T&C APPLIED</div>`;
 
-            // Unique IDs for Gradients to prevent disappearing icons on refresh
             const uniqueId = idPrefix + '-' + Math.floor(Math.random() * 100000);
             const gradS = `gradS-${uniqueId}`;
             const gradD = `gradD-${uniqueId}`;
 
-            // Grandmaster Theme Gradients (Orange / Royal Blue)
             const sessGradStart = '#f97316'; 
             const sessGradEnd = '#c2410c'; 
             const durGradStart = '#60a5fa'; 
@@ -958,10 +1042,9 @@ textarea {
             const iconSessions = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="${gradS}" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:${sessGradStart};stop-opacity:1" /><stop offset="100%" style="stop-color:${sessGradEnd};stop-opacity:1" /></linearGradient></defs><path d="M12 3L1 9L12 15L21 9V17H23V9L12 3Z M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z" stroke="url(#${gradS})" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
             const iconDuration = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="${gradD}" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:${durGradStart};stop-opacity:1" /><stop offset="100%" style="stop-color:${durGradEnd};stop-opacity:1" /></linearGradient></defs><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="url(#${gradD})" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
-            // V101: Referral Logic - POP STYLE
             let referralHTML = '';
             if (referralSettings && referralSettings.show) {
-                const referralText = referralSettings.amount && referralSettings.amount.trim() !== '' 
+                const referralText = referralSettings.amount && referralSettings.amount.toString().trim() !== '' 
                     ? `Refer & Earn ${referralSettings.amount} off*` 
                     : `Refer friends & get Rewards*`;
                 
@@ -973,35 +1056,61 @@ textarea {
                 `;
             }
 
-            // V108: ROADMAP (TIMELINE COMPARISON)
-            let roadmapHTML = '';
+            let timelinePreviewHTML = '';
+            let showTimeline = false;
+            
             if(roadmapSettings && roadmapSettings.show && roadmapSettings.rows && roadmapSettings.rows.some(r => r.label || r.date || r.percent > 0)) {
-                let rowsHtml = '';
+                showTimeline = true;
+                let stepsHTML = '';
+                
                 roadmapSettings.rows.forEach(row => {
                     if(row.label || row.date || row.percent > 0) {
-                        const rowSave = displayFullPrice * (row.percent / 100);
-                        const rowPrice = displayFullPrice - rowSave;
-                        rowsHtml += `
-                            <div class="roadmap-row" style="display:flex; justify-content:space-between; align-items:center; font-size:9px; margin-bottom:4px; border-bottom:1px dashed var(--prev-glass-border); padding-bottom:2px;">
-                                <div style="text-align:left;">
-                                    <div style="color:var(--prev-accent); font-weight:700;">${row.label || 'Tier'}</div>
-                                    <div style="color:var(--prev-text-muted); font-size:8px;">${row.date ? 'Ends: '+row.date : ''}</div>
+                        const tierSave = displayFullPrice * (row.percent / 100);
+                        let tierPrice = displayFullPrice - tierSave - displayMgmtSave - displayRefSave;
+                        if(tierPrice < 0) tierPrice = 0;
+                        
+                        const totalSave = displayFullPrice - tierPrice;
+
+                        stepsHTML += `
+                            <div class="roadmap-step">
+                                <div class="roadmap-line-container">
+                                    <div class="roadmap-dot"></div>
+                                    <div class="roadmap-line"></div>
                                 </div>
-                                <div style="text-align:right;">
-                                    <div style="color:var(--prev-text-main); font-weight:700; font-family:monospace;">${formatCurrency(rowPrice)}</div>
-                                    ${row.percent > 0 ? `<div style="color:#10b981; font-size:8px;">Save ${row.percent}%</div>` : ''}
+                                <div class="roadmap-content">
+                                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                                        <div class="roadmap-label">${row.label || 'Tier'}</div>
+                                        <div class="roadmap-price">${formatCurrency(tierPrice)}</div>
+                                    </div>
+                                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                                        <div class="roadmap-date">
+                                            <svg style="width:8px; height:8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            ${row.date || 'No Expiry'}
+                                        </div>
+                                        <div style="display:flex; align-items:center; gap:6px;">
+                                            ${totalSave > 0 ? `<span class="strike-small">${formatCurrency(displayFullPrice)}</span>` : ''}
+                                            ${totalSave > 0 ? `<div class="roadmap-save-badge-static">Save ${formatCurrency(totalSave)}</div>` : ''}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         `;
                     }
                 });
-                if(rowsHtml) {
-                    roadmapHTML = `
-                    <div class="new-preview-section-box" style="margin-top:8px;">
-                        <div style="font-size:9px; text-transform:uppercase; font-weight:800; color:var(--prev-text-sec); letter-spacing:1px; margin-bottom:6px; text-align:center;">Enrollment Timeline</div>
-                        ${rowsHtml}
-                    </div>`;
-                }
+                
+                timelinePreviewHTML = `
+                    <div style="margin-top:10px; margin-bottom:16px;">
+                        <div style="text-align:center; margin-bottom:16px; padding:12px; background:var(--prev-glass-bg); border:1px solid var(--prev-glass-border); border-radius:12px;">
+                            <div style="font-size:9px; text-transform:uppercase; font-weight:800; color:var(--prev-text-sec); letter-spacing:1px; margin-bottom:4px;">${priceLabelType}</div>
+                            <div style="font-size:32px; font-weight:900; color:var(--prev-text-main); line-height:1; letter-spacing:-1px; text-shadow:0 0 25px var(--prev-accent-glow);">${formatCurrency(displayFullPrice)}</div>
+                            ${conversion && conversion.enabled ? `<div style="font-size:9px; color:var(--prev-text-muted); font-weight:600;">(approx. ${formatOriginal(priceDetails.fullPrice)})</div>` : ''}
+                        </div>
+                        
+                        <div style="padding-left:4px;">
+                            ${stepsHTML}
+                        </div>
+                    </div>
+                `;
             }
 
             const hasDiscounts = displayFullPrice > displayFinalPrice;
@@ -1018,7 +1127,7 @@ textarea {
                                 <div style="font-size:9px; color:var(--prev-accent); letter-spacing:3px; text-transform:uppercase; font-weight:800; margin-bottom:6px; opacity:0.8;">Prepared For</div>
                                 <h1 style="font-size:24px; color:var(--prev-text-main); font-family:'Playfair Display', serif; font-weight:700; line-height:1.2; letter-spacing:-0.5px;">${studentName}</h1>
                             ` : `
-                                <div style="font-size:9px; color:var(--prev-accent); letter-spacing:3px; text-transform:uppercase; font-weight:800; margin-bottom:6px; opacity:0.8;">Offer Summary</div>
+                                <div style="font-size:9px; color:var(--prev-accent); letter-spacing:3px; text-transform:uppercase; font-weight:800; margin-bottom:6px; opacity:0.8;">Curriculum Name</div>
                                 <h1 style="font-size:20px; color:var(--prev-text-main); font-family:'Playfair Display', serif; font-weight:700; line-height:1.2;">${title || 'Custom Package'}</h1>
                             `}
                             <div style="display:flex; justify-content:center; gap:8px; margin-top:10px;">
@@ -1053,45 +1162,45 @@ textarea {
                             </div>
                         ` : ''}
 
-                        ${roadmapHTML}
-                        
-                        <div class="new-preview-price-box">
-                            ${showTopSection ? `
-                                <div style="margin-bottom:12px;">
-                                    ${displayFullPrice > displayFinalPrice ? `
-                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                                        <span style="font-size:11px; color:var(--prev-text-sec); font-weight:700; text-transform:uppercase;">Standard Fee</span>
-                                        <span class="strike-slim" style="font-family:monospace; font-size:14px;">${formatCurrency(displayFullPrice)}</span>
+                        ${showTimeline ? timelinePreviewHTML : `
+                            <div class="new-preview-price-box">
+                                ${showTopSection ? `
+                                    <div style="margin-bottom:12px;">
+                                        ${displayFullPrice > displayFinalPrice ? `
+                                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                            <span style="font-size:11px; color:var(--prev-text-sec); font-weight:700; text-transform:uppercase;">Standard Fee</span>
+                                            <span class="strike-slim" style="font-family:monospace; font-size:14px;">${formatCurrency(displayFullPrice)}</span>
+                                        </div>
+                                        ` : ''}
+                                        ${discountRowsHTML}
                                     </div>
+
+                                    ${couponCode ? `
+                                        <div class="coupon-ticket">
+                                            <div style="font-size:9px; color:var(--prev-text-sec); font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:2px;">Voucher Applied</div>
+                                            <div style="font-size:14px; color:var(--prev-accent); font-family:monospace; font-weight:800; letter-spacing:1px;">${couponCode}</div>
+                                        </div>
                                     ` : ''}
-                                    ${discountRowsHTML}
+
+                                    <div style="height:1px; background:var(--prev-glass-border); width:100%; margin-bottom:14px;"></div>
+                                ` : ''}
+
+                                <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+                                    <div style="font-size:9px; text-transform:uppercase; font-weight:800; color:var(--prev-text-sec); letter-spacing:1px;">${priceLabelType}</div>
+                                    <div style="font-size:36px; color:var(--prev-text-main); font-weight:900; line-height:1; letter-spacing:-1px; text-shadow:0 0 25px var(--prev-accent-glow); margin-bottom:4px;">${formatCurrency(displayFinalPrice)}</div>
+                                    
+                                    ${conversion && conversion.enabled ? `
+                                        <div style="font-size:10px; color:var(--prev-text-muted); font-weight:600; margin-top:-2px;">(approx. ${formatOriginal(originalFinalPrice)})</div>
+                                    ` : ''}
+
+                                    ${displaySavings > 0 ? `
+                                        <div class="new-preview-savings-badge" style="margin-top:4px;">SAVE ${formatCurrency(displaySavings)}</div>
+                                    ` : ''}
                                 </div>
-
-                                ${couponCode ? `
-                                    <div class="coupon-ticket">
-                                        <div style="font-size:9px; color:var(--prev-text-sec); font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:2px;">Voucher Applied</div>
-                                        <div style="font-size:14px; color:var(--prev-accent); font-family:monospace; font-weight:800; letter-spacing:1px;">${couponCode}</div>
-                                    </div>
-                                ` : ''}
-
-                                <div style="height:1px; background:var(--prev-glass-border); width:100%; margin-bottom:14px;"></div>
-                            ` : ''}
-
-                            <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
-                                <div style="font-size:9px; text-transform:uppercase; font-weight:800; color:var(--prev-text-sec); letter-spacing:1px;">${priceLabelType}</div>
-                                <div style="font-size:36px; color:var(--prev-text-main); font-weight:900; line-height:1; letter-spacing:-1px; text-shadow:0 0 25px var(--prev-accent-glow); margin-bottom:4px;">${formatCurrency(displayFinalPrice)}</div>
                                 
-                                ${conversion && conversion.enabled ? `
-                                    <div style="font-size:10px; color:var(--prev-text-muted); font-weight:600; margin-top:-2px;">(approx. ${formatOriginal(originalFinalPrice)})</div>
-                                ` : ''}
-
-                                ${displaySavings > 0 ? `
-                                    <div class="new-preview-savings-badge" style="margin-top:4px;">SAVE ${formatCurrency(displaySavings)}</div>
-                                ` : ''}
+                                ${(showPPC && ppcValue > 0) ? `<div style="margin-top:12px; border-top:1px dashed var(--prev-glass-border); padding-top:8px; font-size:10px; color:var(--prev-text-sec); font-family:monospace; text-align:center;">${formatCurrencyDecimal(ppcValue)} per class</div>` : ''}
                             </div>
-                            
-                            ${(showPPC && ppcValue > 0) ? `<div style="margin-top:12px; border-top:1px dashed var(--prev-glass-border); padding-top:8px; font-size:10px; color:var(--prev-text-sec); font-family:monospace; text-align:center;">${formatCurrencyDecimal(ppcValue)} per class</div>` : ''}
-                        </div>
+                        `}
                         
                         ${referralHTML}
 
@@ -1111,9 +1220,6 @@ textarea {
                 </div>`;
         }
 
-        // --- NEW ISOLATED EXPORT LOGIC (REBUILT: Deep Web / Vivaldi Fix) ---
-
-        // 1. Randomize SVG IDs (Critical for Gradients)
         function randomizeSvgIds(node) {
             const svgs = node.querySelectorAll('svg');
             svgs.forEach((svg) => {
@@ -1135,82 +1241,60 @@ textarea {
             });
         }
 
-        // 2. Main Logic: Copy to Clipboard using Off-Screen Canvas Strategy
-        // FIXED: Using "toPng -> Blob" bridge which bypasses strict MIME checks in Chromium
         async function copyCardForLaptop(cardId) {
             const btn = document.getElementById(`btn-copy-${cardId}`);
             const originalText = btn ? btn.innerHTML : '';
             if(btn) btn.innerHTML = '  Processing...';
 
             try {
-                // Ensure fonts are ready
                 await document.fonts.ready;
-
-                // Select Source
                 const wrapper = document.querySelector(`[data-card-id="${cardId}"]`);
                 const source = wrapper ? wrapper.querySelector('.new-preview-card') : null;
                 if (!source) throw new Error("Card source not found");
 
-                // Create Off-screen Sandbox (The "Deep Web" trick: Position Fixed + Far Left)
-                // Do NOT use display:none or visibility:hidden or opacity:0
                 const sandbox = document.createElement('div');
                 sandbox.style.position = 'fixed';
                 sandbox.style.left = '-10000px'; 
                 sandbox.style.top = '0';
                 sandbox.style.zIndex = '-9999'; 
                 
-                // Clone the card
                 const clone = source.cloneNode(true);
-
-                // Fix Styles on Clone
-                clone.style.transform = 'none'; // Remove scaling
+                clone.style.transform = 'none';
                 clone.style.margin = '0';
                 clone.style.width = '320px';
                 clone.style.minWidth = '320px';
                 clone.style.maxWidth = '320px';
-                // Remove shadow from card itself, apply to container if needed, or rely on container padding
                 clone.style.boxShadow = 'none'; 
 
-                // Create a container to add padding (simulates the shadow cutout look)
-                // FIXED: Explicit Flexbox centering to prevent cutting off
                 const container = document.createElement('div');
-                container.style.width = '400px'; // 320 card + 40px left + 40px right
-                container.style.padding = '40px';
-                container.style.backgroundColor = '#ffffff'; // Force white background for copy
+                container.style.width = '360px'; 
+                container.style.padding = '20px'; 
+                container.style.backgroundColor = '#ffffff'; 
                 container.style.display = 'flex';
                 container.style.justifyContent = 'center';
                 container.style.alignItems = 'center';
                 
                 container.appendChild(clone);
                 sandbox.appendChild(container);
-
-                // Fix SVG Gradients in the clone (prevents IDs clashing with original)
                 randomizeSvgIds(clone); 
-
-                // Append to DOM to trigger browser layout calculation
                 document.body.appendChild(sandbox);
 
-                // Wait for layout thrashing (fonts/images) to settle
                 await new Promise(r => setTimeout(r, 350)); 
 
-                // Generate DataURL (PNG) first - more reliable than toBlob direct in some browsers
                 const dataUrl = await htmlToImage.toPng(container, {
                     quality: 1.0,
-                    pixelRatio: 3, // 3x Density for Retina/WhatsApp High Quality
-                    backgroundColor: '#ffffff', // FORCE WHITE BG (Fixes WhatsApp Black Background issue)
-                    width: 400, // Explicit width
+                    pixelRatio: 6, 
+                    backgroundColor: '#ffffff', 
+                    width: 360, 
                     cacheBust: true,
                     skipAutoScale: true
                 });
 
-                // Clean up DOM immediately
                 document.body.removeChild(sandbox);
 
-                // Convert Base64 DataURL to Blob (The reliable bridge)
                 const res = await fetch(dataUrl);
                 const blob = await res.blob();
 
-                // Write to Clipboard
                 if (navigator.clipboard && navigator.clipboard.write) {
                     await navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
                     showToast('  Copied High Quality Image!', 'success');
@@ -1220,76 +1304,8 @@ textarea {
 
             } catch (error) {
                 console.error("Copy failed", error);
-                // Fallback: Open Modal if clipboard fails (Fail-safe for Safari/Firefox sometimes)
-                saveCardForAndroid(cardId); 
+                showToast('Copy Failed. Browser restricted.', 'error');
             } finally {
-                if(btn) btn.innerHTML = originalText; 
-            }
-        }
-
-        // 3. Save Logic (Android/Download) - Uses the same robust strategy
-        async function saveCardForAndroid(cardId) {
-            const btn = document.getElementById(`btn-save-${cardId}`);
-            const originalText = btn ? btn.innerHTML : '';
-            if(btn) btn.innerHTML = '  Rendering...';
-
-            try {
-                await document.fonts.ready;
-                
-                // Re-use logic: Select Source
-                const wrapper = document.querySelector(`[data-card-id="${cardId}"]`);
-                const source = wrapper ? wrapper.querySelector('.new-preview-card') : null;
-                if (!source) throw new Error("Card source not found");
-
-                const sandbox = document.createElement('div');
-                sandbox.style.position = 'fixed';
-                sandbox.style.left = '-10000px';
-                sandbox.style.top = '0';
-                sandbox.style.zIndex = '-9999';
-                
-                const clone = source.cloneNode(true);
-                clone.style.transform = 'none';
-                clone.style.margin = '0';
-                clone.style.width = '320px';
-                clone.style.minWidth = '320px';
-                clone.style.maxWidth = '320px';
-                // Keep nice shadow for download
-                clone.style.boxShadow = '0 25px 60px -15px rgba(0,0,0,0.5)'; 
-
-                const container = document.createElement('div');
-                container.style.width = '400px';
-                container.style.padding = '40px';
-                container.style.background = 'transparent'; // Transparent for download
-                container.style.display = 'flex';
-                container.style.justifyContent = 'center';
-                container.style.alignItems = 'center';
-                
-                container.appendChild(clone);
-                sandbox.appendChild(container);
-                randomizeSvgIds(clone);
-                document.body.appendChild(sandbox);
-
-                await new Promise(r => setTimeout(r, 350));
-
-                const dataUrl = await htmlToImage.toPng(container, {
-                    quality: 1.0,
-                    pixelRatio: 3, 
-                    backgroundColor: null, // Keep transparency for download
-                    width: 400,
-                    cacheBust: true
-                });
-
-                document.body.removeChild(sandbox);
-
-                const img = document.getElementById('screenshot-preview-image'); 
-                img.src = dataUrl; 
-                document.getElementById('screenshot-preview-modal').style.display = 'block'; 
-                showToast('  Long press image to save', 'success');
-
-            } catch (error) { 
-                console.error(error); 
-                showToast('  Image generation failed.', 'error'); 
-            } finally { 
                 if(btn) btn.innerHTML = originalText; 
             }
         }
@@ -1306,7 +1322,6 @@ textarea {
         function closeModal(modalId) { document.getElementById(modalId).style.display = 'none'; }
         window.onclick = function(event) { 
             if (event.target.classList.contains('modal')) event.target.style.display = 'none'; 
-            // Close roadmap label dropdowns if clicking outside
             if (!event.target.closest('.timeline-vertical-box') && !event.target.closest('.dropdown-menu')) {
                 document.querySelectorAll('.dropdown-menu[id^="roadmap-lbl-drop-"]').forEach(el => el.classList.add('hidden'));
             }
@@ -1325,7 +1340,6 @@ textarea {
         }
         
         function toggleDropdownState(dropdownId) {
-            // Close all other dropdowns first
             document.querySelectorAll('.dropdown-menu').forEach(d => {
                 if(d.id !== dropdownId) d.classList.add('hidden');
             });
@@ -1335,22 +1349,22 @@ textarea {
         
         function getRegionState(region) {
             if (!appState[region]) {
+                const defRef = referralDefaults[region] || 20;
                 appState[region] = {
-                    full: { selected: [], defaults: [], referralSettings: { show: true, amount: '' } },
-                    customFd: { selected: [], defaults: [], referralSettings: { show: true, amount: '' }, roadmapSettings: { rows: [] } },
-                    customMs: { selected: [], defaults: [], referralSettings: { show: true, amount: '' }, roadmapSettings: { rows: [] } },
+                    full: { selected: [], defaults: [], referralSettings: { show: true, amount: defRef } },
+                    customFd: { selected: [], defaults: [], referralSettings: { show: true, amount: defRef }, roadmapSettings: { rows: [] } },
+                    customMs: { selected: [], defaults: [], referralSettings: { show: true, amount: defRef }, roadmapSettings: { rows: [] } },
                     
                     pricePerClassInControl: {}, customCouponTypes: {}, customDiscountLabels: {}, showPPCInOutput: {}, conversionEnabled: {}, conversionShowInOutput: {},
-                    bannerSettings: { showBanner: true, bannerTextSingle: 'Limited seats!', bannerTextBundle: 'Max Savings!' },
+                    bannerSettings: { showBanner: false, bannerTextSingle: 'Limited seats!', bannerTextBundle: 'Max Savings!' }, 
                     ppcSettings: { useTarget: false }, 
                     showDiscountPercent: false,
                     priceLabelType: 'TOTAL INVESTMENT',
-                    roadmapData: { count: 3 } // Default 3 rows
+                    roadmapData: { count: 3 } 
                 };
                 StudentNameController.init(region, 'full');
                 StudentNameController.init(region, 'foundation');
                 StudentNameController.init(region, 'masters');
-                StudentNameController.init(region, 'compare');
                 StudentNameController.init(region, 'autoPricer');
             }
             return appState[region];
@@ -1390,8 +1404,50 @@ textarea {
                 return Math.max(0, Math.min(99, (1 - (targetFinalBase / fullPrice)) * 100)); 
             },
             handleInput: function(region, idPrefix) { if (!this.isUnlocked(region, idPrefix)) return; const inputVal = parseFloat(document.getElementById(`ppc-input-${idPrefix}-${region}`)?.value); if (isNaN(inputVal)) return; const totalPercent = this.calculateTargetDiscount(region, idPrefix, inputVal); this.distributeDiscounts(region, idPrefix, totalPercent); idPrefix === 'full' ? recalcFullOffers(region) : calculateCustomPackage(region, idPrefix); },
-            distributeDiscounts: function(region, idPrefix, totalPercent) { const types = ['normal', 'mgmt', 'referral']; let enabled = types.filter(t => document.getElementById(`discount-enable-${t}-${idPrefix}-${region}`)?.checked); if (enabled.length === 0) { const normalCheck = document.getElementById(`discount-enable-normal-${idPrefix}-${region}`); if(normalCheck) { normalCheck.checked = true; enabled.push('normal'); } } const perInput = totalPercent / enabled.length; types.forEach(t => { const el = document.getElementById(`discount-input-${t}-${idPrefix}-${region}`); if(el) el.value = enabled.includes(t) ? perInput.toFixed(2) : 0; }); },
-            maintainFromDiscountAdjustment: function(region, idPrefix, changedType) { const input = document.getElementById(`ppc-input-${idPrefix}-${region}`); const inputVal = parseFloat(input?.value || 0); if (isNaN(inputVal)) return; const totalRequired = this.calculateTargetDiscount(region, idPrefix, inputVal); const changedInputEl = document.getElementById(`discount-input-${changedType}-${idPrefix}-${region}`); let changedVal = parseFloat(changedInputEl?.value) || 0; if (changedVal > totalRequired) { changedVal = totalRequired; if(changedInputEl) changedInputEl.value = changedVal.toFixed(2); } const remainingPercent = totalRequired - changedVal; const types = ['normal', 'mgmt', 'referral']; const enabled = types.filter(t => document.getElementById(`discount-enable-${t}-${idPrefix}-${region}`)?.checked); const others = enabled.filter(t => t !== changedType); if (others.length > 0) { const perOther = remainingPercent / others.length; others.forEach(t => { const el = document.getElementById(`discount-input-${t}-${idPrefix}-${region}`); if(el) el.value = Math.max(0, perOther).toFixed(2); }); } },
+            distributeDiscounts: function(region, idPrefix, totalPercent) { 
+                const types = ['normal', 'mgmt']; 
+                let enabled = types.filter(t => document.getElementById(`discount-enable-${t}-${idPrefix}-${region}`)?.checked); 
+                
+                if (enabled.length === 0) { 
+                    const normalCheck = document.getElementById(`discount-enable-normal-${idPrefix}-${region}`); 
+                    if(normalCheck) { normalCheck.checked = true; enabled.push('normal'); } 
+                } 
+                
+                const perInput = totalPercent / enabled.length; 
+                types.forEach(t => { 
+                    const el = document.getElementById(`discount-input-${t}-${idPrefix}-${region}`); 
+                    if(el) el.value = enabled.includes(t) ? perInput.toFixed(2) : 0; 
+                }); 
+            },
+            maintainFromDiscountAdjustment: function(region, idPrefix, changedType) { 
+                if(changedType === 'referral') return;
+
+                const input = document.getElementById(`ppc-input-${idPrefix}-${region}`); 
+                const inputVal = parseFloat(input?.value || 0); 
+                if (isNaN(inputVal)) return; 
+                const totalRequired = this.calculateTargetDiscount(region, idPrefix, inputVal); 
+                
+                const changedInputEl = document.getElementById(`discount-input-${changedType}-${idPrefix}-${region}`); 
+                let changedVal = parseFloat(changedInputEl?.value) || 0; 
+                
+                if (changedVal > totalRequired) { 
+                    changedVal = totalRequired; 
+                    if(changedInputEl) changedInputEl.value = changedVal.toFixed(2); 
+                } 
+                
+                const remainingPercent = totalRequired - changedVal; 
+                const types = ['normal', 'mgmt']; 
+                const enabled = types.filter(t => document.getElementById(`discount-enable-${t}-${idPrefix}-${region}`)?.checked); 
+                const others = enabled.filter(t => t !== changedType); 
+                
+                if (others.length > 0) { 
+                    const perOther = remainingPercent / others.length; 
+                    others.forEach(t => { 
+                        const el = document.getElementById(`discount-input-${t}-${idPrefix}-${region}`); 
+                        if(el) el.value = Math.max(0, perOther).toFixed(2); 
+                    }); 
+                } 
+            },
             updateDisplay: function(region, idPrefix, finalPrice, totalClasses) { 
                 if (this.isUnlocked(region, idPrefix)) return; 
                 const input = document.getElementById(`ppc-input-${idPrefix}-${region}`); 
@@ -1455,7 +1511,6 @@ textarea {
                 if (ppcCheck) rs.ppcSettings.useTarget = ppcCheck.checked;
 
                 if (idPrefix === 'full') recalcFullOffers(region); 
-                else if (idPrefix === 'compare') updateCompareTab(region); 
                 else calculateCustomPackage(region, idPrefix); 
             }
         };
@@ -1475,7 +1530,14 @@ textarea {
             return { normal: getVal('normal'), mgmt: getVal('mgmt'), referral: getVal('referral') }; 
         }
         function getSubLevelCode(level, subIndex) { const maps = { beginner: 'B', adv_beginner: 'AB', intermediate: 'I', adv_part_1: 'A', adv_part_2: 'A', sub_junior: 'SJR', junior: 'JR', senior_part_1: 'SR', senior_part_2: 'SR' }; return `${maps[level]}${subIndex}`; }
-        function handleBannerChange(region, type, value) { const rs = getRegionState(region); if (type === 'toggle') rs.bannerSettings.showBanner = document.getElementById(`banner-toggle-${region}`).checked; else if (type === 'single') rs.bannerSettings.bannerTextSingle = value; else if (type === 'bundle') rs.bannerSettings.bannerTextBundle = value; currentActiveTab === 'full' ? renderFullOffers(region) : calculateCustomPackage(region, currentActiveTab === 'custom-fd' ? 'foundation' : 'masters'); }
+        function handleBannerChange(region, type, value, idPrefix) { 
+            const rs = getRegionState(region); 
+            if (type === 'toggle') {
+                rs.bannerSettings.showBanner = document.getElementById(`banner-toggle-${idPrefix}-${region}`).checked;
+            } else if (type === 'single') rs.bannerSettings.bannerTextSingle = value; 
+            else if (type === 'bundle') rs.bannerSettings.bannerTextBundle = value; 
+            currentActiveTab === 'full' ? renderFullOffers(region) : calculateCustomPackage(region, currentActiveTab === 'custom-fd' ? 'foundation' : 'masters'); 
+        }
         function handleDiscountPercentToggle(region) { const rs = getRegionState(region); rs.showDiscountPercent = document.getElementById(`discount-percent-toggle-${region}`).checked; currentActiveTab === 'full' ? renderFullOffers(region) : calculateCustomPackage(region, currentActiveTab === 'custom-fd' ? 'foundation' : 'masters'); }
         function togglePriceLabel(region, checkbox) { const rs = getRegionState(region); rs.priceLabelType = checkbox.checked ? 'YOUR PRICE' : 'TOTAL INVESTMENT'; currentActiveTab === 'full' ? renderFullOffers(region) : calculateCustomPackage(region, currentActiveTab === 'custom-fd' ? 'foundation' : 'masters'); }
         
@@ -1506,7 +1568,6 @@ textarea {
             }
         }
         
-        // --- ROADMAP HELPERS ---
         function handleRoadmapToggle(region, idPrefix) {
             const isChecked = document.getElementById(`roadmap-show-toggle-${idPrefix}-${region}`).checked;
             const container = document.getElementById(`roadmap-container-${idPrefix}-${region}`);
@@ -1554,14 +1615,11 @@ textarea {
             return `${day}${nth(day)} ${month}`;
         }
 
-        // --- NEW DYNAMIC TIMELINE FUNCTIONS ---
         function addTimelineRow(region, idPrefix) {
             const rs = getRegionState(region);
             if(!rs.roadmapData) rs.roadmapData = { count: 3 };
             if(rs.roadmapData.count < 5) {
                 rs.roadmapData.count++;
-                // Re-render only the Roadmap Section? Easier to re-render the whole FS.
-                // But createFinancialSuiteHTML is only called once. We need to inject HTML.
                 renderTimelineContainer(region, idPrefix);
                 calculateCustomPackage(region, idPrefix);
             }
@@ -1592,7 +1650,6 @@ textarea {
                     `<div class="dropdown-item" onclick="selectRoadmapLabel('${region}', '${idPrefix}', ${i}, '${l}')">${l}</div>`
                 ).join('');
 
-                // Default Label Logic
                 let defaultLabel = 'Tier ' + i;
                 if (count === 2) {
                     defaultLabel = (i === 1) ? 'Early Bird' : 'Standard';
@@ -1604,11 +1661,6 @@ textarea {
 
                 const currentLabel = rs.roadmapData?.[`${idPrefix}-${i}-label`] || defaultLabel;
                 
-                // Existing date/percent values? Need to preserve if re-rendering?
-                // For simplicity in this "code father" rebuild, we rely on the DOM state if possible, 
-                // but since we are replacing HTML, we might lose values unless stored in state.
-                // NOTE: In a full app, input values should be bound to state. 
-                // Here, we try to preserve input values if elements exist.
                 let existDate = '', existPercent = (i===1?10:(i===2?5:0));
                 const oldDateEl = document.getElementById(`roadmap-date-${i}-${idPrefix}-${region}`);
                 const oldPercEl = document.getElementById(`roadmap-percent-${i}-${idPrefix}-${region}`);
@@ -1617,7 +1669,6 @@ textarea {
 
                 html += `
                 <div class="timeline-vertical-box relative animate-[fadeIn_0.3s_ease]">
-                    <!-- Row 1: Label Dropdown -->
                     <div class="relative w-full">
                         <label class="text-[0.6rem] font-bold text-secondary uppercase mb-1 block">Tier Name</label>
                         <div class="fs-light-input cursor-pointer flex justify-between items-center bg-white" onclick="toggleDropdownState('roadmap-lbl-drop-${i}-${idPrefix}-${region}')">
@@ -1625,11 +1676,9 @@ textarea {
                             <svg class="w-3 h-3 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </div>
                         <input type="hidden" id="roadmap-label-${i}-${idPrefix}-${region}" value="${currentLabel}">
-                        <!-- Dropdown (High Z-Index) -->
                         <div id="roadmap-lbl-drop-${i}-${idPrefix}-${region}" class="dropdown-menu hidden" style="width:100%; top:100%; left:0;">${rowOpts}</div>
                     </div>
                     
-                    <!-- Row 2: Date and Percent Side-by-Side -->
                     <div class="timeline-row-grid">
                         <div>
                             <label class="text-[0.6rem] font-bold text-secondary uppercase mb-1 block">Ends On</label>
@@ -1645,25 +1694,25 @@ textarea {
             container.innerHTML = html;
         }
 
-        // --- NEW FINANCIAL SUITE BUILDER (V108.4 - Grandmaster Light Theme) ---
         function createFinancialSuiteHTML(region, idPrefix) {
             PPCController.init(region, idPrefix);
             
-            // Dropdown Options Generation
             const lblOpts = discountLabels.map(l => `<div class="dropdown-item" onclick="selectDiscountLabel('${region}', '${idPrefix}', '${l}')">${l}</div>`).join('');
             
             let currencyOpts = `<option value="">Select Target Currency</option>`;
             Object.entries(conversionCurrencies).forEach(([key, info]) => {
                 if(info.code !== allPrices[region].currency)
-                    currencyOpts += `<option value="${info.code}">${info.emoji} ${info.code} (${info.name})</option>`;
+                    currencyOpts += `<option value="${info.code}">${info.name} (${info.code})</option>`; 
             });
+            
+            const rs = getRegionState(region);
+            let stateKey = idPrefix === 'foundation' ? 'customFd' : 'customMs';
+            const defaultRefAmount = rs[stateKey].referralSettings.amount;
 
-            // Defer execution to render timeline AFTER HTML insertion
             setTimeout(() => renderTimelineContainer(region, idPrefix), 0);
 
             return `
             <div class="fs-light-container">
-                <!-- TOP SECTION: PPC & CURRENCY -->
                 <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[rgba(125,125,125,0.1)]">
                     <div class="p-5 flex flex-col justify-center relative">
                         <div class="flex justify-between items-center mb-1">
@@ -1693,43 +1742,37 @@ textarea {
                             <div id="conversion-result-preview-${idPrefix}-${region}" class="text-xl font-black text-accent">--</div>
                         </div>
                         <div class="mt-4 flex flex-col gap-2">
-                             <label class="flex items-center justify-between cursor-pointer"><span class="text-[0.7rem] text-secondary font-bold">Show in Preview</span><label class="toggle-switch small"><input type="checkbox" id="conversion-show-${idPrefix}-${region}" onchange="ConverterController.triggerUpdate('${region}', '${idPrefix}')"><span class="toggle-slider"></span></label></label>
+                             <label class="flex items-center justify-between cursor-pointer"><span class="text-xs font-bold text-secondary font-bold">Show in Preview</span><label class="toggle-switch small"><input type="checkbox" id="conversion-show-${idPrefix}-${region}" onchange="ConverterController.triggerUpdate('${region}', '${idPrefix}')"><span class="toggle-slider"></span></label></label>
                              <label class="flex items-center justify-between cursor-pointer opacity-70 hover:opacity-100"><span class="text-[0.7rem] text-secondary font-bold">Drive Price by Target</span><label class="toggle-switch small"><input type="checkbox" id="ppc-use-target-${idPrefix}-${region}" disabled onchange="ConverterController.triggerUpdate('${region}', '${idPrefix}')"><span class="toggle-slider"></span></label></label>
                         </div>
                     </div>
                 </div>
 
-                <!-- MIDDLE SECTION: DISCOUNT STACK -->
                 <div class="p-0 border-t border-[rgba(125,125,125,0.1)]">
                     <div class="p-4 pb-2"><h3 class="fs-label" style="color:var(--text-1);">Discount Stack</h3></div>
                     <div class="ds-container">
-                        <!-- Normal Coupon -->
                         <div class="ds-row">
                             <label class="toggle-switch small"><input type="checkbox" id="discount-enable-normal-${idPrefix}-${region}" onchange="handleDiscountChange('${region}', '${idPrefix}', 'normal')"><span class="toggle-slider"></span></label>
                             <span class="ds-label text-[#34d399]">Coupon Code</span>
                             <div class="flex items-center"><input type="number" id="discount-input-normal-${idPrefix}-${region}" value="10" class="ds-input text-[#34d399]" oninput="handleDiscountChange('${region}', '${idPrefix}', 'normal')"><span class="text-lg font-bold text-[#34d399] ml-1">%</span></div>
                         </div>
-                        <!-- Mgmt Discount -->
                         <div class="ds-row relative">
                             <label class="toggle-switch small"><input type="checkbox" id="discount-enable-mgmt-${idPrefix}-${region}" onchange="handleDiscountChange('${region}', '${idPrefix}', 'mgmt')"><span class="toggle-slider"></span></label>
                             <div class="flex items-center flex-wrap gap-1 relative">
                                 <span class="ds-label text-[#60a5fa]" id="discount-label-display-${idPrefix}-${region}">Management Discount</span>
                                 <button type="button" class="ds-edit-btn" onclick="toggleDropdownState('discount-label-dropdown-${idPrefix}-${region}')">Edit</button>
-                                <!-- High Z-Index Dropdown -->
                                 <div id="discount-label-dropdown-${idPrefix}-${region}" class="dropdown-menu hidden" style="left:0; top:100%; width:200px;">${lblOpts}</div>
                             </div>
                             <div class="flex items-center"><input type="number" id="discount-input-mgmt-${idPrefix}-${region}" value="0" class="ds-input text-[#60a5fa]" oninput="handleDiscountChange('${region}', '${idPrefix}', 'mgmt')"><span class="text-lg font-bold text-[#60a5fa] ml-1">%</span></div>
                         </div>
-                        <!-- Referral Discount -->
                         <div class="ds-row">
                             <label class="toggle-switch small"><input type="checkbox" id="discount-enable-referral-${idPrefix}-${region}" onchange="handleDiscountChange('${region}', '${idPrefix}', 'referral')"><span class="toggle-slider"></span></label>
                             <span class="ds-label text-[#f472b6]">Referral Bonus</span>
-                            <div class="flex items-center"><input type="number" id="discount-input-referral-${idPrefix}-${region}" value="0" class="ds-input text-[#f472b6]" oninput="handleDiscountChange('${region}', '${idPrefix}', 'referral')"><span class="text-lg font-bold text-[#f472b6] ml-1">%</span></div>
+                            <div class="flex items-center"><input type="number" id="discount-input-referral-${idPrefix}-${region}" value="0" class="ds-input text-[#f472b6]" oninput="handleDiscountChange('${region}', '${idPrefix}', 'referral')"><span class="text-sm font-bold text-[#f472b6] ml-1 uppercase" style="min-width:24px;">${allPrices[region].currency}</span></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- BOTTOM SECTION: ROADMAP & REFERRAL -->
                 <div class="p-5 border-t border-[rgba(125,125,125,0.1)]">
                     <div class="flex items-center justify-between mb-3">
                         <h3 class="fs-label" style="color:var(--text-1);">Enrollment Timeline</h3>
@@ -1744,9 +1787,7 @@ textarea {
                             <button type="button" class="add-remove-btn" onclick="removeTimelineRow('${region}', '${idPrefix}')" title="Remove Row">-</button>
                             <button type="button" class="add-remove-btn" onclick="addTimelineRow('${region}', '${idPrefix}')" title="Add Row">+</button>
                         </div>
-                        <div id="roadmap-dynamic-wrapper-${idPrefix}-${region}">
-                            <!-- Timeline Rows Injected Here -->
-                        </div>
+                        <div id="roadmap-dynamic-wrapper-${idPrefix}-${region}"></div>
                     </div>
 
                     <div class="bg-[rgba(125,125,125,0.05)] rounded-lg p-3 border border-[var(--input-border)] flex flex-wrap md:flex-nowrap items-center gap-4">
@@ -1754,7 +1795,7 @@ textarea {
                             <span class="text-[0.65rem] font-bold text-secondary uppercase">Referral Badge</span>
                             <label class="toggle-switch small"><input type="checkbox" id="referral-show-toggle-${idPrefix}-${region}" checked onchange="handleReferralChange('${region}', 'toggle', '', '${idPrefix}')"><span class="toggle-slider"></span></label>
                         </div>
-                        <input type="text" id="referral-amount-input-${idPrefix}-${region}" class="fs-light-input bg-white" style="font-size:0.8rem;" placeholder="Amount (e.g. 500)" oninput="handleReferralChange('${region}', 'amount', this.value, '${idPrefix}')">
+                        <input type="text" id="referral-amount-input-${idPrefix}-${region}" class="fs-light-input bg-white" style="font-size:0.8rem;" placeholder="Amount (e.g. 500)" value="${defaultRefAmount}" oninput="handleReferralChange('${region}', 'amount', this.value, '${idPrefix}')">
                     </div>
                 </div>
             </div>`; 
@@ -1764,6 +1805,11 @@ textarea {
             const data = allPrices[region]; if(!data) return '';
             const cOpts = couponTypes.map(t => `<div class="dropdown-item" onclick="selectCouponType('${region}', 'full', '${t}')">${t}</div>`).join('');
             
+            const rs = getRegionState(region);
+            const defaultRef = rs.full.referralSettings.amount;
+            
+            const bannerChecked = rs.bannerSettings.showBanner ? 'checked' : '';
+
             const classTypeToggle = `<div class="class-type-switch"><div class="switch-bg"></div><input type="radio" class="class-type-input" id="type-one-${region}" name="class-type-global-${region}" value="one_on_one" checked onchange="switchClassType('${region}', 'one_on_one')"><label for="type-one-${region}" class="class-type-label"><span class="text-xl">  </span> One-on-One</label><input type="radio" class="class-type-input" id="type-group-${region}" name="class-type-global-${region}" value="group" onchange="switchClassType('${region}', 'group')"><label for="type-group-${region}" class="class-type-label"><span class="text-xl"> </span> Group Class</label></div>`;
             
             const discountContent = `
@@ -1776,7 +1822,7 @@ textarea {
                     <h3 class="text-xs font-bold text-accent mb-3 uppercase tracking-wider">Referral Badge</h3>
                     <div class="flex items-center gap-4">
                         <label class="flex items-center gap-2 cursor-pointer"><span class="text-xs font-bold text-secondary uppercase">Show</span><label class="toggle-switch small"><input type="checkbox" id="referral-show-toggle-full-${region}" checked onchange="handleReferralChange('${region}', 'toggle', '', 'full')"><span class="toggle-slider"></span></label></label>
-                        <input type="text" id="referral-amount-input-full-${region}" class="input-premium py-1 px-3 text-sm flex-grow" placeholder="Amount (e.g. 500)" oninput="handleReferralChange('${region}', 'amount', this.value, 'full')">
+                        <input type="text" id="referral-amount-input-full-${region}" class="input-premium py-1 px-3 text-sm flex-grow" placeholder="Amount (e.g. 500)" value="${defaultRef}" oninput="handleReferralChange('${region}', 'amount', this.value, 'full')">
                     </div>
                 </div>
 
@@ -1790,23 +1836,22 @@ textarea {
                     <div class="discount-control"><label class="block text-xs font-bold text-accent mb-2 uppercase">Expiry</label><input type="datetime-local" id="coupon-expiry-${region}" value="${getDefaultExpiry()}" class="input-premium"></div>
                 </div>
                 <div class="mt-4 border-t border-[var(--header-border)] pt-4">
-                    <div class="flex items-center justify-between mb-3"><span class="text-xs font-bold text-accent uppercase">Urgency Banner</span><label class="toggle-switch"><input type="checkbox" id="banner-toggle-${region}" checked onchange="handleBannerChange('${region}', 'toggle')"><span class="toggle-slider"></span></label></div>
+                    <div class="flex items-center justify-between mb-3"><span class="text-xs font-bold text-accent uppercase">Urgency Banner</span><label class="toggle-switch"><input type="checkbox" id="banner-toggle-full-${region}" ${bannerChecked} onchange="handleBannerChange('${region}', 'toggle', '', 'full')"><span class="toggle-slider"></span></label></div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <div class="discount-control"><label class="block text-[0.65rem] font-bold text-secondary mb-1 uppercase">Standard Text</label><input type="text" class="input-premium text-sm" value="Limited seats!" oninput="handleBannerChange('${region}', 'single', this.value)"></div>
-                        <div class="discount-control"><label class="block text-[0.65rem] font-bold text-secondary mb-1 uppercase">Highlight Text</label><input type="text" class="input-premium text-sm" value="Max Savings!" oninput="handleBannerChange('${region}', 'bundle', this.value)"></div>
+                        <div class="discount-control"><label class="block text-[0.65rem] font-bold text-secondary mb-1 uppercase">Standard Text</label><input type="text" class="input-premium text-sm" value="Limited seats!" oninput="handleBannerChange('${region}', 'single', this.value, 'full')"></div>
+                        <div class="discount-control"><label class="block text-[0.65rem] font-bold text-secondary mb-1 uppercase">Highlight Text</label><input type="text" class="input-premium text-sm" value="Max Savings!" oninput="handleBannerChange('${region}', 'bundle', this.value, 'full')"></div>
                     </div>
                 </div>`;
             
-            const cardsSection = `<div class="premium-card mb-6"><h2 class="section-title mb-4">  Offers</h2><div class="mb-5 bg-[var(--input-bg)] p-4 rounded-xl border border-[var(--input-border)]"><label class="block text-xs font-bold text-accent mb-2 uppercase">Starting Level:</label><select id="upsell-filter-${region}" onchange="renderFullOffers('${region}')" class="input-premium max-w-md"><option value="none">-- Select Starting Level --</option><optgroup label="Foundation">${foundationLevels.map(l => `<option value="${l}">${foundationLevelNames[l]}</option>`).join('')}</optgroup><optgroup label="Masters">${mastersLevels.map(l => `<option value="${l}">${mastersLevelNames[l]}</option>`).join('')}</optgroup></select></div><div id="offers-output-container-${region}" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div></div>`;
+            const cardsSection = `<div class="premium-card mb-6"><h2 class="section-title mb-4">  Offers</h2><div class="mb-5 bg-[var(--input-bg)] p-4 rounded-xl border border-[var(--input-border)]"><label class="block text-xs font-bold text-accent mb-2 uppercase">Start From:</label><select id="upsell-filter-${region}" onchange="renderFullOffers('${region}')" class="input-premium max-w-md"><option value="none">-- Select Starting Level --</option><optgroup label="Foundation">${foundationLevels.map(l => `<option value="${l}">${foundationLevelNames[l]}</option>`).join('')}</optgroup><optgroup label="Masters">${mastersLevels.map(l => `<option value="${l}_partial">${mastersLevelNames[l]} (48 Sessions)</option><option value="${l}">${mastersLevelNames[l]} (96 Sessions)</option>`).join('')}</optgroup></select></div><div id="offers-output-container-${region}" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div></div>`;
             
             return `
                 <div class="premium-card mb-5">
-                    <h1 class="text-3xl font-black text-primary mb-5 flex items-center gap-3"><span class="text-4xl">${regionNames[region].split(' ')[0]}</span> ${regionNames[region].split(' ').slice(1).join(' ')}</h1>
+                    <h1 class="text-3xl font-black text-primary mb-5 flex items-center gap-3">${regionNames[region]}</h1>
                     <div class="tab-container">
                         <button id="tab-btn-full-${region}" class="tab-btn active" onclick="showInternalTab('${region}', 'full')">⚡ Quick Offers</button>
-                        <button id="tab-btn-compare-${region}" class="tab-btn" onclick="showInternalTab('${region}', 'compare')">⚖️ Compare</button>
-                        <button id="tab-btn-custom-fd-${region}" class="tab-btn" onclick="showInternalTab('${region}', 'custom-fd')">♟️ Custom Fd.</button>
-                        <button id="tab-btn-custom-ms-${region}" class="tab-btn" onclick="showInternalTab('${region}', 'custom-ms')">👑 Custom Ms.</button>
+                        <button id="tab-btn-custom-fd-${region}" class="tab-btn" onclick="showInternalTab('${region}', 'custom-fd')">♟️ Custom Foundation</button>
+                        <button id="tab-btn-custom-ms-${region}" class="tab-btn" onclick="showInternalTab('${region}', 'custom-ms')">👑 Custom Masters</button>
                         <button id="tab-btn-global-conv-${region}" class="tab-btn" onclick="showInternalTab('${region}', 'global-conv')">💱 Converter</button>
                         <button id="tab-btn-auto-pricer-${region}" class="tab-btn" onclick="showInternalTab('${region}', 'auto-pricer')">🤖 Helper</button>
                     </div>
@@ -1820,7 +1865,6 @@ textarea {
                     ${cardsSection}
                 </div>
                 <div id="tab-content-auto-pricer-${region}" class="hidden">${generateAutoPricerHTML(region)}</div>
-                <div id="tab-content-compare-${region}" class="hidden">${generateCompareTabHTML(region)}</div>
                 <div id="tab-content-custom-fd-${region}" class="hidden">${generateCustomCalc(region, 'foundation', data.foundation.groupName, region==='in'?data.foundation.groupName2:null)}</div>
                 <div id="tab-content-custom-ms-${region}" class="hidden">${generateCustomCalc(region, 'masters', data.masters.groupName, null)}</div>
                 <div id="tab-content-global-conv-${region}" class="hidden">${generateGlobalConverterHTML(region)}</div>`;
@@ -1829,19 +1873,46 @@ textarea {
         function switchClassType(region, type) { renderFullOffers(region); }
         function handleDiscountChange(region, idPrefix, type) { if (idPrefix.startsWith('full')) { recalcFullOffers(region); return; } if (PPCController.isUnlocked(region, idPrefix)) { PPCController.maintainFromDiscountAdjustment(region, idPrefix, type); } calculateCustomPackage(region, idPrefix); }
 
-        function calculatePackageData(region, startIdx, endIdx, fdKey, msKey) {
-            let totalClasses = 0, totalMonths = 0, totalPrice = 0, levelNames = [];
+        function calculatePackageData(region, startIdx, endIdx, fdKey, msKey, forcePartialLast = false) {
+            let totalClasses = 0, totalMonths = 0, totalPrice = 0, levelNames = [], levelsInfo = [];
             for (let i = startIdx; i <= endIdx; i++) {
-                const item = fullLevelSequence[i]; levelNames.push(item.name);
+                const item = fullLevelSequence[i]; 
+                
                 if (item.type === 'foundation') {
+                    levelNames.push(item.name);
+                    let sText = 'Full Level';
+                    if(item.key === 'adv_part_1') sText = 'A1, A2, A3';
+                    if(item.key === 'adv_part_2') sText = 'A4, A5, A6';
+                    levelsInfo.push({ name: item.name, subLevels: sText });
                     const str = classStructure[`foundation_${(fdKey==='regular_group'||fdKey==='focused_group')?'group':fdKey}`];
                     totalClasses += str.total; totalMonths += str.duration; totalPrice += allPrices[region].foundation[fdKey][item.key];
                 } else {
                     const str = classStructure[`masters_${msKey}`];
-                    const isSingle = (startIdx === endIdx);
-                    totalClasses += isSingle ? str.partial_total : str.total; totalMonths += isSingle ? str.partial_duration : str.duration; totalPrice += isSingle ? allPrices[region].masters[msKey][item.key].price_48 : allPrices[region].masters[msKey][item.key].price_96;
+                    const isLast = (i === endIdx);
+                    const usePartial = isLast && forcePartialLast;
+                    
+                    let suffix = usePartial ? " (Partial)" : "";
+                    levelNames.push(item.name + suffix);
+                    
+                    let subText = usePartial ? "SJR1, SJR2, SJR3" : "Full Level (1-6)"; 
+                    if (item.key === 'junior') subText = usePartial ? "JR1, JR2, JR3" : "Full Level (1-6)";
+                    else if (item.key === 'senior_part_1') subText = usePartial ? "SR1, SR2, SR3" : "Full Level (1-6)";
+                    else if (item.key === 'senior_part_2') subText = usePartial ? "SR7, SR8, SR9" : "Full Level (7-12)";
+                    
+                    levelsInfo.push({ name: item.name, subLevels: subText });
+                    
+                    if (usePartial) {
+                        totalClasses += str.partial_total;
+                        totalMonths += str.partial_duration;
+                        totalPrice += allPrices[region].masters[msKey][item.key].price_48;
+                    } else {
+                        totalClasses += str.total;
+                        totalMonths += str.duration;
+                        totalPrice += allPrices[region].masters[msKey][item.key].price_96;
+                    }
                 }
-            } return { totalClasses, totalMonths, totalPrice, levelNames };
+            } 
+            return { totalClasses, totalMonths, totalPrice, levelNames, levelsInfo };
         }
 
         function getMultiLevelCardHTML(region, i, startLvlName, endLvlName, levelsList, classes, duration, price, discType, clsTypeLabel, clsTypeKey) {
@@ -1852,12 +1923,9 @@ textarea {
                         <div class="flex items-center justify-center h-48 text-secondary">Loading Preview...</div>
                     </div>
                     <div class="mt-4">
-                        <div class="grid grid-cols-2 gap-2 ss-actions-container">
+                        <div class="flex w-full ss-actions-container">
                             <button onclick="copyCardForLaptop('${id}')" id="btn-copy-${id}" class="ss-action-btn btn-copy-pc">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg> Copy (PC)
-                            </button>
-                            <button onclick="saveCardForAndroid('${id}')" id="btn-save-${id}" class="ss-action-btn btn-save-android">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Save (And)
                             </button>
                         </div>
                         <button onclick="showTerms()" class="text-xs text-accent mt-2 text-center block w-full hover:underline font-bold tracking-wider opacity-70 uppercase">* T&C applied</button>
@@ -1868,41 +1936,52 @@ textarea {
 
         function renderFullOffers(region) {
             const container = document.getElementById(`offers-output-container-${region}`); 
-            const filterSelect = document.getElementById(`upsell-filter-${region}`);
-            let filterLevel = filterSelect?.value; 
+            const rawFilter = document.getElementById(`upsell-filter-${region}`)?.value; 
             const currentClassType = document.querySelector(`input[name="class-type-global-${region}"]:checked`)?.value;
             
-            if(!container || !filterLevel || !currentClassType) return;
+            if(!container || !rawFilter || !currentClassType) return;
             
-            if(filterLevel === 'none') {
-                // Default to Beginner so you can see the first level details immediately
-                filterLevel = 'beginner';
-                if(filterSelect) filterSelect.value = 'beginner';
+            if(rawFilter === 'none') { 
+                container.innerHTML = `<div class="col-span-1 md:col-span-2 text-center p-10 text-secondary italic border border-[var(--input-border)] rounded-xl bg-[rgba(125,125,125,0.05)]">Please select the student's <strong>Starting Level</strong> above to see offer stacks.</div>`; 
+                return; 
             }
-            
-            // LOGIC FIX FOR INDIA: Foundation Regular vs Focused vs One-on-One
-            // If Region is India and ClassType is 'group', we default to 'regular_group' for the loop
-            // BUT wait, we need to know WHICH group type the user wants in the quick offer tab.
-            // The Quick Offer tab currently only has a binary switch "One-on-One" vs "Group".
-            // For India, "Group" usually implies "Regular Group" in Quick Offers. 
-            // If we want Focused Group in Quick Offers for India, we'd need a 3-way toggle.
-            // For now, let's map 'group' to 'regular_group' for India Foundation to match standard behavior.
-            // (Note: The Custom Calculator has the 3-way toggle)
             
             const fdKey = currentClassType === 'one_on_one' ? 'one_on_one' : (region==='in'?'regular_group':'group'); 
             const msKey = currentClassType === 'one_on_one' ? 'one_on_one' : 'group';
             
-            let html = '', startSequenceIndex = (filterLevel === 'all') ? 0 : fullLevelSequence.findIndex(item => item.key === filterLevel);
+            const isPartialCompleted = rawFilter.endsWith('_partial');
+            const cleanKey = rawFilter.replace('_partial', '');
+            
+            let finishedIndex = -1;
+            if (rawFilter !== 'all') {
+                finishedIndex = fullLevelSequence.findIndex(item => item.key === cleanKey);
+            }
+            
+            let startSequenceIndex = (rawFilter === 'all') ? 0 : finishedIndex;
             
             if (startSequenceIndex === -1 || startSequenceIndex >= fullLevelSequence.length) { 
                 container.innerHTML = `<div class="col-span-2 text-center p-10 text-secondary italic">No further levels available.</div>`; 
                 return; 
             }
             
+            let html = '';
+            let cardCounter = 0;
             for (let i = startSequenceIndex; i < fullLevelSequence.length; i++) {
-                const packageData = calculatePackageData(region, startSequenceIndex, i, fdKey, msKey); 
-                const isSingle = (startSequenceIndex === i);
-                html += getMultiLevelCardHTML(region, i - startSequenceIndex, fullLevelSequence[startSequenceIndex].name.toUpperCase(), fullLevelSequence[i].name.toUpperCase(), packageData.levelNames, packageData.totalClasses, packageData.totalMonths, packageData.totalPrice, isSingle ? 'full_single' : 'full_bundle', currentClassType === 'one_on_one' ? 'ONE-ON-ONE' : 'GROUP', currentClassType);
+                const currentItem = fullLevelSequence[i];
+                
+                if (currentItem.type === 'masters') {
+                    const packageDataPartial = calculatePackageData(region, startSequenceIndex, i, fdKey, msKey, true);
+                    const isSingleP = (startSequenceIndex === i);
+                    html += getMultiLevelCardHTML(region, cardCounter++, fullLevelSequence[startSequenceIndex].name.toUpperCase(), currentItem.name.toUpperCase() + " (PARTIAL)", packageDataPartial.levelNames, packageDataPartial.totalClasses, packageDataPartial.totalMonths, packageDataPartial.totalPrice, isSingleP ? 'full_single' : 'full_bundle', currentClassType === 'one_on_one' ? 'ONE-ON-ONE' : 'GROUP', currentClassType);
+
+                    const packageDataFull = calculatePackageData(region, startSequenceIndex, i, fdKey, msKey, false);
+                    const isSingleF = (startSequenceIndex === i);
+                    html += getMultiLevelCardHTML(region, cardCounter++, fullLevelSequence[startSequenceIndex].name.toUpperCase(), currentItem.name.toUpperCase(), packageDataFull.levelNames, packageDataFull.totalClasses, packageDataFull.totalMonths, packageDataFull.totalPrice, isSingleF ? 'full_single' : 'full_bundle', currentClassType === 'one_on_one' ? 'ONE-ON-ONE' : 'GROUP', currentClassType);
+                } else {
+                    const packageData = calculatePackageData(region, startSequenceIndex, i, fdKey, msKey, false); 
+                    const isSingle = (startSequenceIndex === i);
+                    html += getMultiLevelCardHTML(region, cardCounter++, fullLevelSequence[startSequenceIndex].name.toUpperCase(), currentItem.name.toUpperCase(), packageData.levelNames, packageData.totalClasses, packageData.totalMonths, packageData.totalPrice, isSingle ? 'full_single' : 'full_bundle', currentClassType === 'one_on_one' ? 'ONE-ON-ONE' : 'GROUP', currentClassType);
+                }
             }
             
             container.innerHTML = html; 
@@ -1910,11 +1989,10 @@ textarea {
         }
 
         function recalcFullOffers(region) {
-            const filterSelect = document.getElementById(`upsell-filter-${region}`);
-            let filterLevel = filterSelect?.value; 
+            const rawFilter = document.getElementById(`upsell-filter-${region}`)?.value; 
             const currentClassType = document.querySelector(`input[name="class-type-global-${region}"]:checked`)?.value;
             
-            if(!filterLevel || filterLevel === 'none' || !currentClassType) return;
+            if(!rawFilter || rawFilter === 'none' || !currentClassType) return;
             
             const rs = getRegionState(region);
             const discSingle = getActiveDiscounts(region, 'full_single'); 
@@ -1926,99 +2004,111 @@ textarea {
             
             const fdKey = currentClassType === 'one_on_one' ? 'one_on_one' : (region==='in'?'regular_group':'group'); 
             const msKey = currentClassType === 'one_on_one' ? 'one_on_one' : 'group';
-            let startSequenceIndex = (filterLevel === 'all') ? 0 : fullLevelSequence.findIndex(item => item.key === filterLevel);
+            
+            const isPartialCompleted = rawFilter.endsWith('_partial');
+            const cleanKey = rawFilter.replace('_partial', '');
+            let finishedIndex = -1;
+            if (rawFilter !== 'all') {
+                finishedIndex = fullLevelSequence.findIndex(item => item.key === cleanKey);
+            }
+            
+            let startSequenceIndex = (rawFilter === 'all') ? 0 : finishedIndex;
             
             let cardCount = 0;
             for (let i = startSequenceIndex; i < fullLevelSequence.length; i++) {
-                const packageData = calculatePackageData(region, startSequenceIndex, i, fdKey, msKey); 
-                const isSingle = (startSequenceIndex === i); 
-                const activeDisc = isSingle ? discSingle : discBundle;
+                const currentItem = fullLevelSequence[i];
+                const iterations = currentItem.type === 'masters' ? [true, false] : [false]; 
                 
-                const nSave = Math.floor(packageData.totalPrice * (activeDisc.normal/100));
-                const mSave = Math.floor(packageData.totalPrice * (activeDisc.mgmt/100));
-                const rSave = Math.floor(packageData.totalPrice * (activeDisc.referral/100));
-                const finalPrice = packageData.totalPrice - nSave - mSave - rSave;
-                
-                const studentName = StudentNameController.getStudentName(region, 'full');
-                const showStudentName = StudentNameController.getShowStudentName(region, 'full');
-                
-                const id = `offer-stack-${cardCount}-${region}`;
-                const card = document.querySelector(`[data-card-id="${id}"] .offer-card-content`);
-                
-                if (card) {
-                    const title = fullLevelSequence[startSequenceIndex].name === fullLevelSequence[i].name 
-                        ? fullLevelSequence[startSequenceIndex].name.toUpperCase() 
-                        : `${fullLevelSequence[startSequenceIndex].name.toUpperCase()}   ${fullLevelSequence[i].name.toUpperCase()}`;
+                iterations.forEach(forcePartial => {
+                    const packageData = calculatePackageData(region, startSequenceIndex, i, fdKey, msKey, forcePartial);
+                    const isSingle = (startSequenceIndex === i);
                     
-                    const levelsData = packageData.levelNames.map(name => ({
-                        name: name,
-                        subLevels: 'Full Level' 
-                    }));
+                    const activeDisc = isSingle ? discSingle : discBundle;
                     
-                    const conversionData = { enabled: false, targetCurrency: '', rate: 1, symbol: '' };
-                    if (rs.conversionEnabled[`${region}-full`] && rs.conversionShowInOutput[`${region}-full`] && globalConversionRates) {
-                        const target = rs.conversionEnabled[`${region}-full`];
-                        const baseCode = conversionCurrencies[region].code;
-                        const rate = convertPrice(1, baseCode, target);
-                        if(rate) {
-                            conversionData.enabled = true;
-                            conversionData.targetCurrency = target;
-                            conversionData.rate = rate;
-                            conversionData.symbol = conversionCurrencies[Object.keys(conversionCurrencies).find(key => conversionCurrencies[key].code === target)].symbol;
+                    const nSave = Math.floor(packageData.totalPrice * (activeDisc.normal/100));
+                    const mSave = Math.floor(packageData.totalPrice * (activeDisc.mgmt/100));
+                    const rSave = activeDisc.referral;
+                    
+                    const finalPrice = packageData.totalPrice - nSave - mSave - rSave;
+                    
+                    const studentName = StudentNameController.getStudentName(region, 'full');
+                    const showStudentName = StudentNameController.getShowStudentName(region, 'full');
+                    
+                    const id = `offer-stack-${cardCount}-${region}`;
+                    const card = document.querySelector(`[data-card-id="${id}"] .offer-card-content`);
+                    
+                    if (card) {
+                        let title = "";
+                        if (fullLevelSequence[startSequenceIndex].name === currentItem.name) {
+                             title = currentItem.name.toUpperCase() + (forcePartial ? " (PARTIAL)" : "");
+                        } else {
+                             title = `${fullLevelSequence[startSequenceIndex].name.toUpperCase()} - ${currentItem.name.toUpperCase()}${forcePartial ? " (PARTIAL)" : ""}`;
                         }
-                    }
-
-                    const newPreviewHTML = generateNewPreviewHTML({
-                        region: region,
-                        idPrefix: id,
-                        studentName: studentName,
-                        showStudentName: showStudentName,
-                        classType: currentClassType,
-                        levels: levelsData,
-                        totalSessions: packageData.totalClasses,
-                        totalMonths: packageData.totalMonths, 
-                        benefits: benefits,
-                        priceDetails: {
-                            fullPrice: packageData.totalPrice,
-                            finalPrice: finalPrice,
-                            discounts: {
-                                normal: activeDisc.normal,
-                                mgmt: activeDisc.mgmt,
-                                referral: activeDisc.referral,
-                                normalValue: nSave,
-                                mgmtValue: mSave,
-                                referralValue: rSave
+                        
+                        const conversionData = { enabled: false, targetCurrency: '', rate: 1, symbol: '' };
+                        if (rs.conversionEnabled[`${region}-full`] && rs.conversionShowInOutput[`${region}-full`] && globalConversionRates) {
+                            const target = rs.conversionEnabled[`${region}-full`];
+                            const baseCode = conversionCurrencies[region].code;
+                            const rate = convertPrice(1, baseCode, target);
+                            if(rate) {
+                                conversionData.enabled = true;
+                                conversionData.targetCurrency = target;
+                                conversionData.rate = rate;
+                                conversionData.symbol = conversionCurrencies[Object.keys(conversionCurrencies).find(key => conversionCurrencies[key].code === target)].symbol;
                             }
-                        },
-                        currency: allPrices[region].currency,
-                        couponCode: coup || '',
-                        expiry: exp || '',
-                        title: title,
-                        levelCount: packageData.levelNames.length,
-                        bannerSettings: {
-                            showBanner: rs.bannerSettings.showBanner,
-                            bannerText: isSingle ? rs.bannerSettings.bannerTextSingle : rs.bannerSettings.bannerTextBundle
-                        },
-                        showDiscountPercent: rs.showDiscountPercent,
-                        priceLabelType: rs.priceLabelType,
-                        showPPC: rs.showPPCInOutput[`${region}-full`],
-                        conversion: conversionData,
-                        referralSettings: rs.full.referralSettings 
-                    });
-                    
-                    card.innerHTML = newPreviewHTML;
-                }
-                
-                cardCount++;
+                        }
+
+                        const newPreviewHTML = generateNewPreviewHTML({
+                            region: region,
+                            idPrefix: id,
+                            studentName: studentName,
+                            showStudentName: showStudentName,
+                            classType: currentClassType,
+                            levels: packageData.levelsInfo, 
+                            totalSessions: packageData.totalClasses,
+                            totalMonths: packageData.totalMonths, 
+                            benefits: benefits,
+                            priceDetails: {
+                                fullPrice: packageData.totalPrice,
+                                finalPrice: finalPrice,
+                                discounts: {
+                                    normal: activeDisc.normal,
+                                    mgmt: activeDisc.mgmt,
+                                    referral: activeDisc.referral,
+                                    normalValue: nSave,
+                                    mgmtValue: mSave,
+                                    referralValue: rSave
+                                }
+                            },
+                            currency: allPrices[region].currency,
+                            couponCode: coup || '',
+                            expiry: exp || '',
+                            title: title,
+                            levelCount: packageData.levelNames.length,
+                            bannerSettings: {
+                                showBanner: rs.bannerSettings.showBanner,
+                                bannerText: isSingle ? rs.bannerSettings.bannerTextSingle : rs.bannerSettings.bannerTextBundle
+                            },
+                            showDiscountPercent: rs.showDiscountPercent,
+                            priceLabelType: rs.priceLabelType,
+                            showPPC: rs.showPPCInOutput[`${region}-full`],
+                            conversion: conversionData,
+                            referralSettings: rs.full.referralSettings 
+                        });
+                        
+                        card.innerHTML = newPreviewHTML;
+                    }
+                    cardCount++;
+                });
             }
             
             ConverterController.updatePreview(region, 'full');
         }
 
         function createPriceConverterHTML(region, idPrefix) {
-            let opts = ''; Object.entries(conversionCurrencies).forEach(([key, info]) => opts += `<option value="${info.code}">${info.emoji} ${info.name} (${info.code})</option>`);
+            let opts = ''; Object.entries(conversionCurrencies).forEach(([key, info]) => opts += `<option value="${info.code}">${info.name} (${info.code})</option>`);
             return `<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div class="discount-control"><label class="block text-xs font-bold text-accent mb-2 uppercase">From</label><input type="text" value="${regionNames[region]}" class="input-premium" disabled></div>
+                <div class="discount-control"><label class="block text-xs font-bold text-accent mb-2 uppercase">From</label><div class="flex items-center gap-2 p-2 rounded bg-gray-50 border border-gray-200">${regionNames[region]}</div></div>
                 <div class="discount-control"><label class="block text-xs font-bold text-accent mb-2 uppercase">To</label><select id="conversion-target-${idPrefix}-${region}" class="input-premium" onchange="ConverterController.triggerUpdate('${region}', '${idPrefix}')">${opts}</select></div>
             </div>
             <div class="mt-4 flex items-center justify-between flex-wrap gap-3">
@@ -2032,9 +2122,10 @@ textarea {
         }
         
         function createBenefitsManagerHTML(region, idPrefix) { return `<div class="grid grid-cols-1 md:grid-cols-2 gap-5"><div><h3 class="text-sm font-bold text-primary mb-3 uppercase tracking-wide">Available</h3><div id="available-benefits-list-${idPrefix}-${region}" class="max-h-72 overflow-y-auto space-y-2 pr-2"></div><div class="mt-3"><label class="block text-xs font-bold text-accent mb-2 uppercase">Add Custom</label><div class="flex rounded-md shadow-sm"><input type="text" id="custom-benefit-input-${idPrefix}-${region}" class="input-premium rounded-r-none" placeholder="Enter..."><button type="button" onclick="addCustomBenefit('${region}', '${idPrefix}')" class="inline-flex items-center px-3 py-2 border-l border-t border-b border-r rounded-r-md bg-blue-900/20 text-xs font-bold uppercase text-accent hover:bg-blue-900/40" style="border-color:var(--input-border);">Add</button></div></div></div><div><h3 class="text-sm font-bold text-primary mb-3 uppercase tracking-wide">Selected</h3><div id="selected-benefits-list-${idPrefix}-${region}" class="max-h-80 overflow-y-auto space-y-2 pr-2"></div></div></div>`; }
+        
         function createDiscountInputBlock(region, idPrefix) {
             const lblOpts = discountLabels.map(l => `<div class="dropdown-item" onclick="selectDiscountLabel('${region}', '${idPrefix}', '${l}')">${l}</div>`).join('');
-            return `<div class="discount-control"><label class="flex items-center space-x-2 cursor-pointer mb-3"><input type="checkbox" id="discount-enable-normal-${idPrefix}-${region}" class="h-4 w-4" onchange="handleDiscountChange('${region}', '${idPrefix}', 'normal')"><span class="block text-xs font-bold text-accent uppercase tracking-wider">Coupon Disc.</span></label><div class="relative"><input type="number" id="discount-input-normal-${idPrefix}-${region}" value="10" class="input-premium text-center text-base font-bold" oninput="handleDiscountChange('${region}', '${idPrefix}', 'normal')"><span class="absolute right-3 top-1/2 -translate-y-1/2 text-base font-bold text-accent">%</span></div></div><div class="discount-control"><label class="flex items-center space-x-2 cursor-pointer mb-3"><input type="checkbox" id="discount-enable-mgmt-${idPrefix}-${region}" class="h-4 w-4" onchange="handleDiscountChange('${region}', '${idPrefix}', 'mgmt')"><div class="flex items-center gap-2 flex-grow relative"><span class="block text-xs font-bold uppercase tracking-wider" style="color:var(--add-save-color);" id="discount-label-display-${idPrefix}-${region}">Management Discount</span><button type="button" class="edit-btn" onclick="showDiscountLabelDropdown('${region}', '${idPrefix}')">Edit</button><div id="discount-label-dropdown-${idPrefix}-${region}" class="dropdown-menu hidden">${lblOpts}</div></div></label><div class="relative"><input type="number" id="discount-input-mgmt-${idPrefix}-${region}" value="0" class="input-premium text-center text-base font-bold" oninput="handleDiscountChange('${region}', '${idPrefix}', 'mgmt')"><span class="absolute right-3 top-1/2 -translate-y-1/2 text-base font-bold" style="color:var(--add-save-color);">%</span></div></div><div class="discount-control"><label class="flex items-center space-x-2 cursor-pointer mb-3"><input type="checkbox" id="discount-enable-referral-${idPrefix}-${region}" class="h-4 w-4" onchange="handleDiscountChange('${region}', '${idPrefix}', 'referral')"><span class="block text-xs font-bold uppercase tracking-wider" style="color:var(--ref-save-color);">Referral Disc.</span></label><div class="relative"><input type="number" id="discount-input-referral-${idPrefix}-${region}" value="0" class="input-premium text-center text-base font-bold" oninput="handleDiscountChange('${region}', '${idPrefix}', 'referral')"><span class="absolute right-3 top-1/2 -translate-y-1/2 text-base font-bold" style="color:var(--ref-save-color);">%</span></div></div>`;
+            return `<div class="discount-control"><label class="flex items-center space-x-2 cursor-pointer mb-3"><input type="checkbox" id="discount-enable-normal-${idPrefix}-${region}" class="h-4 w-4" onchange="handleDiscountChange('${region}', '${idPrefix}', 'normal')"><span class="block text-xs font-bold text-accent uppercase tracking-wider">Coupon Disc.</span></label><div class="relative"><input type="number" id="discount-input-normal-${idPrefix}-${region}" value="10" class="input-premium text-center text-base font-bold" oninput="handleDiscountChange('${region}', '${idPrefix}', 'normal')"><span class="absolute right-3 top-1/2 -translate-y-1/2 text-base font-bold text-accent">%</span></div></div><div class="discount-control"><label class="flex items-center space-x-2 cursor-pointer mb-3"><input type="checkbox" id="discount-enable-mgmt-${idPrefix}-${region}" class="h-4 w-4" onchange="handleDiscountChange('${region}', '${idPrefix}', 'mgmt')"><div class="flex items-center gap-2 flex-grow relative"><span class="block text-xs font-bold uppercase tracking-wider" style="color:var(--add-save-color);" id="discount-label-display-${idPrefix}-${region}">Management Discount</span><button type="button" class="edit-btn" onclick="showDiscountLabelDropdown('${region}', '${idPrefix}')">Edit</button><div id="discount-label-dropdown-${idPrefix}-${region}" class="dropdown-menu hidden">${lblOpts}</div></div></label><div class="relative"><input type="number" id="discount-input-mgmt-${idPrefix}-${region}" value="0" class="input-premium text-center text-base font-bold" oninput="handleDiscountChange('${region}', '${idPrefix}', 'mgmt')"><span class="absolute right-3 top-1/2 -translate-y-1/2 text-base font-bold" style="color:var(--add-save-color);">%</span></div></div><div class="discount-control"><label class="flex items-center space-x-2 cursor-pointer mb-3"><input type="checkbox" id="discount-enable-referral-${idPrefix}-${region}" class="h-4 w-4" onchange="handleDiscountChange('${region}', '${idPrefix}', 'referral')"><span class="block text-xs font-bold uppercase tracking-wider" style="color:var(--ref-save-color);">Referral Disc.</span></label><div class="relative"><input type="number" id="discount-input-referral-${idPrefix}-${region}" value="0" class="input-premium text-center text-base font-bold" oninput="handleDiscountChange('${region}', '${idPrefix}', 'referral')"><span class="absolute right-3 top-1/2 -translate-y-1/2 text-base font-bold uppercase" style="color:var(--ref-save-color); font-size: 0.8rem;">${allPrices[region].currency}</span></div></div>`;
         }
         
         function getCurrentTotalClasses(region, idPrefix) {
@@ -2082,7 +2173,6 @@ textarea {
             let opts = `<label class="custom-type-btn"><input type="radio" name="class-type-${cType}-${region}" value="one_on_one" class="hidden" onchange="populateBenefits('${region}','${cType}');calculateCustomPackage('${region}','${cType}');" checked><span class="font-bold text-xs uppercase tracking-wider">  One-on-One</span></label><label class="custom-type-btn"><input type="radio" name="class-type-${cType}-${region}" value="${isInd&&isFd?'regular_group':'group'}" class="hidden" onchange="populateBenefits('${region}','${cType}');calculateCustomPackage('${region}','${cType}');"><span class="font-bold text-xs uppercase tracking-wider">  ${gn1}</span></label>${isInd&&isFd ? `<label class="custom-type-btn"><input type="radio" name="class-type-${cType}-${region}" value="focused_group" class="hidden" onchange="populateBenefits('${region}','${cType}');calculateCustomPackage('${region}','${cType}');"><span class="font-bold text-xs uppercase tracking-wider">  ${gn2}</span></label>` : ''}`;
             let checks = ''; levels.forEach(l => { const str = isFd?classStructure.foundation_group:classStructure.masters_group; checks += `<div class="mb-5"><h4 class="text-[0.65rem] font-bold text-accent uppercase mb-3 tracking-widest clickable-header" onclick="toggleSubLevelGroup('${region}', '${cType}', '${l}')" title="Click to Select All/None">${lNames[l]}</h4><div class="sub-lvl-grid">`; for(let i=1; i<=str.count; i++) { const dNum = (!isFd && l==='senior_part_2') ? i+6 : ((isFd && l==='adv_part_2') ? i+3 : i); checks += `<label class="sub-lvl-btn"><input type="checkbox" id="chk-${region}-${cType}-${l}-sub${i}" class="hidden" onchange="calculateCustomPackage('${region}','${cType}')"><span class="sub-lvl-code">${getSubLevelCode(l, dNum)}</span><svg class="sub-lvl-tick" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></label>`; } checks += `</div></div>`; }); const cOpts = couponTypes.map(t => `<div class="dropdown-item" onclick="selectCouponType('${region}', '${cType}', '${t}')">${t}</div>`).join('');
             
-            // 1. Configuration (Type + Levels + Student Name)
             const typeAndLevelsContent = `
                 <div class="mb-6">
                     <h3 class="text-sm font-bold text-primary mb-3 uppercase tracking-wide">1. Type</h3>
@@ -2095,10 +2185,11 @@ textarea {
                     <div id="sub-level-container-${cType}-${region}">${checks}</div>
                 </div>`;
             
-            // 2. FINANCIAL SUITE (Core + V108 Roadmap)
             const financialSuiteContent = createFinancialSuiteHTML(region, cType);
+            
+            const rs = getRegionState(region);
+            const bannerChecked = rs.bannerSettings.showBanner ? 'checked' : '';
 
-            // 3. Visuals & Benefits
             const visualsContent = `
                 <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
                     <label class="flex items-center gap-2 cursor-pointer"><span class="text-xs font-bold text-accent uppercase">Show Discount %</span><label class="toggle-switch"><input type="checkbox" id="discount-percent-toggle-${region}" onchange="handleDiscountPercentToggle('${region}')"><span class="toggle-slider"></span></label></label>
@@ -2114,9 +2205,9 @@ textarea {
                 </div>
 
                 <div class="mt-4 border-t border-[var(--header-border)] pt-4 mb-6">
-                    <div class="flex items-center justify-between mb-3"><span class="text-xs font-bold text-accent uppercase">Urgency Banner</span><label class="toggle-switch"><input type="checkbox" id="banner-toggle-${region}" checked onchange="handleBannerChange('${region}', 'toggle')"><span class="toggle-slider"></span></label></div>
+                    <div class="flex items-center justify-between mb-3"><span class="text-xs font-bold text-accent uppercase">Urgency Banner</span><label class="toggle-switch"><input type="checkbox" id="banner-toggle-${cType}-${region}" ${bannerChecked} onchange="handleBannerChange('${region}', 'toggle', '', '${cType}')"><span class="toggle-slider"></span></label></div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <div class="discount-control col-span-2"><label class="block text-[0.65rem] font-bold text-secondary mb-1 uppercase">Banner Text</label><input type="text" class="input-premium text-sm" value="Max Savings!" oninput="handleBannerChange('${region}', 'bundle', this.value)"></div>
+                        <div class="discount-control col-span-2"><label class="block text-[0.65rem] font-bold text-secondary mb-1 uppercase">Banner Text</label><input type="text" class="input-premium text-sm" value="Max Savings!" oninput="handleBannerChange('${region}', 'bundle', this.value, '${cType}')"></div>
                     </div>
                 </div>
                 
@@ -2129,7 +2220,6 @@ textarea {
             const studentName = StudentNameController.getStudentName(region, cType);
             const showStudentName = StudentNameController.getShowStudentName(region, cType);
             
-            const rs = getRegionState(region);
             let stateKey = 'full';
             if(cType === 'foundation') stateKey = 'customFd';
             if(cType === 'masters') stateKey = 'customMs';
@@ -2171,9 +2261,8 @@ textarea {
                     <div class="offer-card" data-card-id="${previewId}" style="height: auto;">
                         <div class="offer-card-content">${initialPreviewHTML}</div>
                         <div class="p-4 border-t border-[var(--card-border)]">
-                            <div class="grid grid-cols-2 gap-2 ss-actions-container">
+                            <div class="flex w-full ss-actions-container">
                                 <button onclick="copyCardForLaptop('${previewId}')" id="btn-copy-${previewId}" class="ss-action-btn btn-copy-pc"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg> Copy (PC)</button>
-                                <button onclick="saveCardForAndroid('${previewId}')" id="btn-save-${previewId}" class="ss-action-btn btn-save-android"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Save (And)</button>
                             </div>
                             <button onclick="showTerms()" class="text-xs text-accent mt-2 text-center block w-full hover:underline font-bold tracking-wider opacity-70 uppercase">* T&C applied</button>
                         </div>
@@ -2188,7 +2277,7 @@ textarea {
             let totalClasses = 0, totalDuration = 0, fullPrice = 0, subCostHTML = '', firstSelected = null, lastSelected = null, includedList = [], selectedCount = 0;
 
             const discounts = getActiveDiscounts(region, cType);
-            const totalDiscPercent = discounts.normal + discounts.mgmt + discounts.referral;
+            const totalDiscPercent = discounts.normal + discounts.mgmt;
 
             levels.forEach(lvl => {
                 let lvlSubs = 0, lvlClasses = 0;
@@ -2201,8 +2290,12 @@ textarea {
                     for(let i=1; i<=str.count; i++) if (document.getElementById(`chk-${region}-${cType}-${lvl}-sub${i}`)?.checked) subLevelsSelected.push(i);
                     
                     let subText = '';
-                    if (subLevelsSelected.length === str.count) subText = 'Full Level';
-                    else if (subLevelsSelected.length === 1) subText = `Sub-level ${subLevelsSelected[0]}`;
+                    const dNum = (!isFd && lvl==='senior_part_2') ? subLevelsSelected[0]+6 : ((isFd && lvl==='adv_part_2') ? subLevelsSelected[0]+3 : subLevelsSelected[0]);
+                    
+                    const isAdvOverride = (lvl === 'adv_part_1' || lvl === 'adv_part_2') && subLevelsSelected.length === str.count;
+
+                    if (subLevelsSelected.length === str.count && !isAdvOverride) subText = 'Full Level';
+                    else if (subLevelsSelected.length === 1 && !isAdvOverride) subText = getSubLevelCode(lvl, dNum);
                     else {
                         const codes = subLevelsSelected.map(idx => getSubLevelCode(lvl, (!isFd && lvl==='senior_part_2') ? idx+6 : ((isFd && lvl==='adv_part_2') ? idx+3 : idx)));
                         subText = codes.join(', ');
@@ -2247,7 +2340,8 @@ textarea {
 
             const nSave = Math.floor(fullPrice * (discounts.normal/100));
             const mSave = Math.floor(fullPrice * (discounts.mgmt/100));
-            const rSave = Math.floor(fullPrice * (discounts.referral/100));
+            const rSave = discounts.referral;
+            
             const finalPrice = fullPrice - nSave - mSave - rSave;
 
             if (subCostHTML) {
@@ -2261,7 +2355,6 @@ textarea {
             
             const showRoadmap = document.getElementById(`roadmap-show-toggle-${cType}-${region}`)?.checked || false;
             
-            // Get roadmap count from state
             const rs = getRegionState(region);
             const rCount = rs.roadmapData ? (rs.roadmapData.count || 3) : 3;
             
@@ -2276,7 +2369,7 @@ textarea {
 
             let displayTitle = "SELECT LEVELS";
             if (firstSelected) {
-                displayTitle = firstSelected === lastSelected ? firstSelected.toUpperCase() : `${firstSelected.toUpperCase()}   ${lastSelected.toUpperCase()}`;
+                displayTitle = firstSelected === lastSelected ? firstSelected.toUpperCase() : `${firstSelected.toUpperCase()} - ${lastSelected.toUpperCase()}`;
             }
             
             PPCController.updateDisplay(region, cType, finalPrice, totalClasses);
@@ -2302,6 +2395,9 @@ textarea {
                 }
             }
 
+            const refStateKey = cType === 'foundation' ? 'customFd' : 'customMs';
+            const currentRefSettings = rs[refStateKey].referralSettings;
+
             const previewId = `custom-${cType}-${region}`;
             const previewContainer = document.querySelector(`[data-card-id="${previewId}"] .offer-card-content`);
             if (previewContainer) {
@@ -2321,7 +2417,7 @@ textarea {
                         discounts: {
                             normal: discounts.normal,
                             mgmt: discounts.mgmt,
-                            referral: discounts.referral,
+                            referral: discounts.referral, 
                             normalValue: nSave,
                             mgmtValue: mSave,
                             referralValue: rSave
@@ -2340,7 +2436,7 @@ textarea {
                     priceLabelType: rs.priceLabelType,
                     showPPC: rs.showPPCInOutput[`${region}-${cType}`],
                     conversion: conversionData,
-                    referralSettings: rs.referralSettings, 
+                    referralSettings: currentRefSettings, 
                     roadmapSettings: { show: showRoadmap, rows: roadmapRows } 
                 });
                 
@@ -2354,19 +2450,38 @@ textarea {
 
         function generateAutoPricerHTML(currentRegion) {
             const r = apGlobalState.targetRegion, is1on1 = apGlobalState.classType === 'one_on_one', isGroup = apGlobalState.classType === 'group', isB3 = apGlobalState.bundleMode === '3', isB6 = apGlobalState.bundleMode === '6', isBCustom = apGlobalState.bundleMode === 'custom';
-            // FIXED: Country Selection Buttons now have a solid orange background when selected, fixing the "white text on white background" glitch.
-            const countryGrid = Object.keys(regionNames).map(code => `<button onclick="updateAPState('targetRegion', '${code}')" class="flex-grow min-w-[30%] px-3 py-3 rounded-xl border flex items-center justify-center gap-2 ${code===r?'border-orange-600 bg-orange-600 text-white shadow-md':'border-[var(--input-border)] bg-[#fff7ed] hover:border-orange-300 text-secondary'} font-bold text-[0.65rem] uppercase hover:border-[var(--accent)] transition-all"><span>${conversionCurrencies[code].emoji}</span> ${regionNames[code].split(' ').slice(1).join(' ')}</button>`).join('');
+            const countryGrid = Object.keys(regionNames).map(code => {
+                const cleanName = regionNames[code]; 
+                return `<button onclick="updateAPState('targetRegion', '${code}')" class="flex-grow min-w-[30%] px-3 py-3 rounded-xl border flex items-center justify-center gap-2 ${code===r?'border-orange-600 bg-orange-600 text-white shadow-md':'border-[var(--input-border)] bg-[#fff7ed] hover:border-orange-300 text-secondary'} font-bold text-[0.65rem] uppercase hover:border-[var(--accent)] transition-all">${cleanName}</button>`;
+            }).join('');
             
             const studentName = StudentNameController.getStudentName(currentRegion, 'autoPricer');
             const showStudentName = StudentNameController.getShowStudentName(currentRegion, 'autoPricer');
             const isParent = apGlobalState.oppMode === 'parent';
 
-            // ADDED: Pre-calculate Price to display in Copy Box
             const priceData = calculateAutoPricerPrices();
             const finalAmount = priceData.finalPrice;
             const formattedAmount = finalAmount.toLocaleString('en-US'); 
-            const currencyISOCode = conversionCurrencies[apGlobalState.targetRegion].code; // Use target region currency code
+            const currencyISOCode = conversionCurrencies[apGlobalState.targetRegion].code; 
             
+            const defRef = referralDefaults[currentRegion] || 20;
+            const currentRef = apGlobalState.referralAmount || defRef;
+
+            const generatedSKUs = generateCurriculumStrings();
+            const skuListHTML = generatedSKUs.length > 0 ? 
+                `<div class="mt-2 space-y-2">
+                    ${generatedSKUs.map(sku => `
+                        <div class="flex items-center justify-between bg-gray-50 p-2 rounded border border-gray-200 text-xs hover:border-orange-300 transition-all">
+                            <span class="font-mono font-bold text-gray-700 select-all truncate mr-2">${sku}</span>
+                            <button onclick="copyHelperAmount('${sku}', this)" class="shrink-0 flex items-center gap-1 text-[10px] bg-white border border-gray-300 px-2 py-1 rounded hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 transition uppercase font-bold">
+                                <span>Copy</span>
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </button>
+                        </div>
+                    `).join('')}
+                </div>` 
+                : '<div class="text-[10px] text-gray-400 italic mt-2">No curriculum parsed.</div>';
+
             return `<div class="premium-card" id="ap-container-wrapper">
                 <div class="max-w-lg mx-auto">
                     <div class="flex items-center gap-3 mb-6">
@@ -2395,24 +2510,37 @@ textarea {
                         </div>
                         <div class="grid grid-cols-2 gap-3 mb-4">
                             <div><label class="block text-xs font-bold text-accent mb-2 uppercase">3. Class Type</label><div class="flex flex-col gap-2"><button onclick="updateAPState('classType', 'one_on_one')" class="custom-type-btn py-3 ${is1on1 ? 'border-[var(--accent)] bg-[var(--badge-lvl-bg)] text-[var(--accent)]' : ''}"><span class="font-bold text-xs uppercase">  1-on-1</span></button><button onclick="updateAPState('classType', 'group')" class="custom-type-btn py-3 ${isGroup ? 'border-[var(--accent)] bg-[var(--badge-lvl-bg)] text-[var(--accent)]' : ''}"><span class="font-bold text-xs uppercase">  Group</span></button></div></div>
-                            <div><label class="block text-xs font-bold text-accent mb-2 uppercase">4. Bundle</label><div class="flex flex-col gap-2"><button onclick="updateAPState('bundleMode', '3')" class="custom-type-btn py-3 ${isB3 ? 'border-[var(--accent)] bg-[var(--badge-lvl-bg)] text-[var(--accent)]' : ''}"><span class="font-bold text-xs uppercase">  Next 3</span></button><button onclick="updateAPState('bundleMode', '6')" class="custom-type-btn py-3 ${isB6 ? 'border-[var(--accent)] bg-[var(--badge-lvl-bg)] text-[var(--accent)]' : ''}"><span class="font-bold text-xs uppercase">  Next 6</span></button><div class="flex gap-2"><button onclick="updateAPState('bundleMode', 'custom')" class="custom-type-btn py-3 flex-grow ${isBCustom ? 'border-[var(--accent)] bg-[var(--badge-lvl-bg)] text-[var(--accent)]' : ''}"><span class="font-bold text-xs uppercase">  Cust.</span></button>${isBCustom ? `<input type="number" min="1" max="20" value="${apGlobalState.customCount}" oninput="updateAPState('customCount', this.value)" class="input-premium w-14 text-center font-bold px-1">` : ''}</div></div></div>
+                            <div><label class="block text-xs font-bold text-accent mb-2 uppercase">4. Bundle</label><div class="flex flex-col gap-2"><button onclick="updateAPState('bundleMode', '3')" class="custom-type-btn py-3 ${isB3 ? 'border-[var(--accent)] bg-[var(--badge-lvl-bg)] text-[var(--accent)]' : ''}"><span class="font-bold text-xs uppercase">  Next 3</span></button><button onclick="updateAPState('bundleMode', '6')" class="custom-type-btn py-3 ${isB6 ? 'border-[var(--accent)] bg-[var(--badge-lvl-bg)] text-[var(--accent)]' : ''}"><span class="font-bold text-xs uppercase">  Next 6</span></button><div class="flex gap-2"><button onclick="updateAPState('bundleMode', 'custom')" class="custom-type-btn py-3 flex-grow ${isBCustom ? 'border-[var(--accent)] bg-[var(--badge-lvl-bg)] text-[var(--accent)]' : ''}"><span class="font-bold text-xs uppercase">  Cust.</span></button><input type="number" min="1" max="20" value="${apGlobalState.customCount}" oninput="updateAPState('customCount', this.value)" class="input-premium w-14 text-center font-bold px-1" title="Extend Range"></div></div></div>
                         </div>
+                        
+                        <div class="mb-4 bg-[rgba(125,125,125,0.05)] rounded-lg p-3 border border-[var(--input-border)] flex items-center gap-4">
+                            <div class="flex items-center gap-2 min-w-[100px]">
+                                <span class="text-[0.65rem] font-bold text-secondary uppercase">Referral</span>
+                                <label class="toggle-switch small"><input type="checkbox" ${apGlobalState.referralEnabled ? 'checked' : ''} onchange="updateAPState('referralEnabled', this.checked)"><span class="toggle-slider"></span></label>
+                            </div>
+                            <input type="text" value="${currentRef}" class="fs-light-input bg-white" style="font-size:0.8rem;" placeholder="Ref Amount" oninput="updateAPState('referralAmount', this.value)" ${!apGlobalState.referralEnabled ? 'disabled style="opacity:0.5;"' : ''}>
+                        </div>
+
                         <div class="mb-4"><h3 class="text-sm font-bold text-primary mb-3 uppercase tracking-wide">5. Generated Receipt</h3>
                             
-                            <!-- UPDATED UI: Clean Receipt Box -->
                             <div class="mb-5 bg-white border border-gray-200 rounded-xl p-4 shadow-sm relative overflow-hidden group hover:border-orange-300 transition-all">
                                 <div class="absolute top-0 left-0 w-1 h-full bg-orange-500"></div>
-                                <div class="flex items-center justify-between">
+                                <div class="flex items-center justify-between gap-3 border-b border-gray-100 pb-3 mb-3">
                                     <div>
                                         <p class="text-[0.65rem] uppercase font-bold text-gray-400 tracking-widest mb-0.5">Total Amount (${currencyISOCode})</p>
                                         <div class="flex items-baseline gap-1">
                                             <span class="text-3xl font-black text-gray-800 tracking-tight">${formattedAmount}</span>
                                         </div>
                                     </div>
-                                    <button onclick="copyHelperAmount('${formattedAmount}', this)" class="flex items-center gap-2 px-4 py-2 bg-gray-50 hover:bg-orange-50 border border-gray-200 hover:border-orange-200 rounded-lg transition-all group-hover:shadow-sm">
-                                        <span class="text-xs font-bold text-gray-600 group-hover:text-orange-600 uppercase">Copy</span>
-                                        <svg class="w-4 h-4 text-gray-400 group-hover:text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                                    <button onclick="copyHelperAmount('${formattedAmount}', this)" class="flex items-center gap-2 px-3 py-1.5 bg-gray-50 hover:bg-orange-50 border border-gray-200 hover:border-orange-200 rounded-lg transition-all">
+                                        <span class="text-[0.65rem] font-bold text-gray-600 hover:text-orange-600 uppercase">Copy Amount</span>
+                                        <svg class="w-3 h-3 text-gray-400 hover:text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
                                     </button>
+                                </div>
+                                
+                                <div>
+                                    <p class="text-[0.65rem] uppercase font-bold text-gray-400 tracking-widest mb-1">Curriculum Name</p>
+                                    ${skuListHTML}
                                 </div>
                             </div>
 
@@ -2426,18 +2554,19 @@ textarea {
                                         classType: apGlobalState.classType,
                                         levels: calculateAutoPricerLevels(),
                                         totalSessions: calculateAutoPricerSessions(),
-                                        totalMonths: calculateAutoPricerDuration(), // Added Duration Logic
+                                        totalMonths: calculateAutoPricerDuration(),
                                         benefits: benefitsData.default,
                                         priceDetails: priceData,
                                         currency: allPrices[apGlobalState.targetRegion].currency,
                                         couponCode: '',
                                         expiry: `Valid till: ${new Date().toLocaleDateString()}`,
-                                        title: 'AUTO-PRICER OFFER',
-                                        levelCount: calculateAutoPricerLevels().length
+                                        title: 'CURRICULUM NAME',
+                                        levelCount: calculateAutoPricerLevels().length,
+                                        referralSettings: { show: true, amount: currentRef }
                                     })}
                                 </div>
                                 <div class="p-4 border-t border-[var(--card-border)]">
-                                    <div class="grid grid-cols-2 gap-2 ss-actions-container"><button onclick="copyCardForLaptop('ap-receipt-card')" id="btn-copy-ap-receipt-card" class="ss-action-btn btn-copy-pc"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg> Copy (PC)</button><button onclick="saveCardForAndroid('ap-receipt-card')" id="btn-save-ap-receipt-card" class="ss-action-btn btn-save-android"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Save (And)</button></div></div>
+                                    <div class="flex w-full ss-actions-container"><button onclick="copyCardForLaptop('ap-receipt-card')" id="btn-copy-ap-receipt-card" class="ss-action-btn btn-copy-pc"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg> Copy (PC)</button></div></div>
                             </div>
                         </div>
                     </div>
@@ -2448,7 +2577,6 @@ textarea {
         function calculateAutoPricerLevels() {
             if (!apGlobalState.isParsed) return [];
             
-            // Find ALL matches, not just one
             const allMatches = [...apGlobalState.rawInput.matchAll(/\b([A-Z]+)(\d+)\b/g)];
             const validIndices = [];
             
@@ -2464,82 +2592,186 @@ textarea {
             const lastIdx = validIndices[validIndices.length - 1];
             
             let rawLevels = [];
+            const isCurrent = apGlobalState.oppMode === 'current';
+            const start = isCurrent ? firstIdx : lastIdx + 1;
             
-            if (apGlobalState.oppMode === 'current') {
-                // Generate EXACTLY what is in the string range (e.g. A1 to A3)
-                for(let i = firstIdx; i <= lastIdx; i++) {
-                    const item = globalLevelSequence[i];
-                    // Find actual key in level names map
-                    let mainName = foundationLevelNames[item.levelKey] || mastersLevelNames[item.levelKey];
-                    // Correct mainName for masters parts
-                    if(item.levelKey === 'senior_part_1') mainName = 'Senior Part 1';
-                    else if(item.levelKey === 'senior_part_2') mainName = 'Senior Part 2';
-                    else if(item.levelKey === 'adv_part_1') mainName = 'Advanced Part 1';
-                    else if(item.levelKey === 'adv_part_2') mainName = 'Advanced Part 2';
-                    else if(item.levelKey === 'adv_beginner') mainName = 'Advanced Beginner';
-                    else if(item.levelKey === 'sub_junior') mainName = 'Sub-Junior';
-                    
-                    rawLevels.push({ mainName: mainName, subIndex: item.subIndex });
+            let limit = 0;
+            if(isCurrent) {
+                if(apGlobalState.bundleMode === 'custom') {
+                   limit = parseInt(apGlobalState.customCount);
+                } else {
+                   limit = (lastIdx - firstIdx + 1);
                 }
             } else {
-                // Parent/Predict Mode: Start AFTER the last found level
-                const bundleCount = apGlobalState.bundleMode === '3' ? 3 : (apGlobalState.bundleMode === '6' ? 6 : parseInt(apGlobalState.customCount));
-                for(let i=0; i<bundleCount; i++) {
-                    const idx = lastIdx + 1 + i;
-                    if(idx >= globalLevelSequence.length) break;
-                    const item = globalLevelSequence[idx];
-                    
-                    let mainName = foundationLevelNames[item.levelKey] || mastersLevelNames[item.levelKey];
-                     if(item.levelKey === 'senior_part_1') mainName = 'Senior Part 1';
-                    else if(item.levelKey === 'senior_part_2') mainName = 'Senior Part 2';
-                    else if(item.levelKey === 'adv_part_1') mainName = 'Advanced Part 1';
-                    else if(item.levelKey === 'adv_part_2') mainName = 'Advanced Part 2';
-                    else if(item.levelKey === 'adv_beginner') mainName = 'Advanced Beginner';
-                    else if(item.levelKey === 'sub_junior') mainName = 'Sub-Junior';
+                limit = apGlobalState.bundleMode === '3' ? 3 : (apGlobalState.bundleMode === '6' ? 6 : parseInt(apGlobalState.customCount));
+            }
 
-                    rawLevels.push({ mainName: mainName, subIndex: item.subIndex });
-                }
+            for(let i=0; i<limit; i++) {
+                const idx = start + i;
+                if(idx >= globalLevelSequence.length) break;
+                const item = globalLevelSequence[idx];
+                
+                let mainName = foundationLevelNames[item.levelKey] || mastersLevelNames[item.levelKey];
+                if(item.levelKey === 'senior_part_1') mainName = 'Senior Part 1';
+                else if(item.levelKey === 'senior_part_2') mainName = 'Senior Part 2';
+                else if(item.levelKey === 'adv_part_1') mainName = 'Advanced Part 1';
+                else if(item.levelKey === 'adv_part_2') mainName = 'Advanced Part 2';
+                else if(item.levelKey === 'adv_beginner') mainName = 'Advanced Beginner';
+                else if(item.levelKey === 'sub_junior') mainName = 'Sub-Junior';
+                
+                rawLevels.push({ mainName: mainName, subIndex: item.subIndex, levelKey: item.levelKey });
             }
             
-            // --- NEW GROUPING LOGIC (V108.9.3) ---
             const grouped = [];
             let currentGroup = null;
 
             rawLevels.forEach(lvl => {
                 if (currentGroup && currentGroup.name === lvl.mainName) {
-                    currentGroup.subs.push(lvl.subIndex);
+                    currentGroup.subs.push({idx: lvl.subIndex, key: lvl.levelKey});
                 } else {
                     if (currentGroup) grouped.push(currentGroup);
-                    currentGroup = { name: lvl.mainName, subs: [lvl.subIndex] };
+                    currentGroup = { name: lvl.mainName, subs: [{idx: lvl.subIndex, key: lvl.levelKey}] };
                 }
             });
             if (currentGroup) grouped.push(currentGroup);
 
-            // Format strings
-            return grouped.map(g => ({
-                name: g.name,
-                subLevels: "Sub-level " + g.subs.join(", ")
-            }));
+            return grouped.map(g => {
+                const codes = g.subs.map(s => {
+                    const isFd = foundationLevels.includes(s.key);
+                    const dNum = (!isFd && s.key==='senior_part_2') ? s.idx+6 : ((isFd && s.key==='adv_part_2') ? s.idx+3 : s.idx);
+                    return getSubLevelCode(s.key, dNum);
+                });
+                
+                return {
+                    name: g.name,
+                    subLevels: codes.join(", "),
+                    key: g.subs[0].key,
+                    count: g.subs.length
+                };
+            });
+        }
+        
+        function generateCurriculumStrings() {
+            if (!apGlobalState.isParsed) return [];
+            
+            const region = apGlobalState.targetRegion;
+            const classType = apGlobalState.classType; 
+            const levels = calculateAutoPricerLevels(); 
+            
+            let regionPrefix = (regionCodeMap[region] || 'WW');
+            if(region === 'uae') regionPrefix = 'UAE';
+            if(region === 'in') regionPrefix = 'IND';
+            if(region === 'sgd') regionPrefix = 'SIN';
+            if(region === 'usa') regionPrefix = 'USA';
+            if(region === 'uk') regionPrefix = 'UK';
+            if(region === 'aus') regionPrefix = 'AUS';
+            
+            const flatKeys = [];
+            levels.forEach(l => {
+                flatKeys.push({ key: l.key, isFull: l.count >= (foundationLevels.includes(l.key) ? 3 : 6) });
+            });
+
+            const bundles = [];
+            let i = 0;
+            while(i < flatKeys.length) {
+                const current = flatKeys[i];
+                let matched = false;
+
+                if (i + 3 < flatKeys.length) {
+                    if (current.key === 'sub_junior' && flatKeys[i+1].key === 'junior' && flatKeys[i+2].key === 'senior_part_1' && flatKeys[i+3].key === 'senior_part_2') {
+                        if(current.isFull && flatKeys[i+1].isFull && flatKeys[i+2].isFull && flatKeys[i+3].isFull) {
+                            bundles.push({ name: 'Master', isPartial: false });
+                            i += 4; matched = true; continue;
+                        }
+                    }
+                }
+
+                if (i + 4 < flatKeys.length) {
+                    const keys = flatKeys.slice(i, i+5).map(k => k.key);
+                    if (JSON.stringify(keys) === JSON.stringify(['beginner', 'adv_beginner', 'intermediate', 'adv_part_1', 'adv_part_2'])) {
+                         if(flatKeys.slice(i, i+5).every(k => k.isFull)) {
+                            bundles.push({ name: 'Foundation', isPartial: false });
+                            i += 5; matched = true; continue;
+                         }
+                    }
+                }
+
+                if (i + 2 < flatKeys.length) {
+                    const keys = flatKeys.slice(i, i+3).map(k => k.key);
+                    if (JSON.stringify(keys) === JSON.stringify(['beginner', 'adv_beginner', 'intermediate'])) {
+                        if(flatKeys.slice(i, i+3).every(k => k.isFull)) {
+                            bundles.push({ name: 'Building Blocks', isPartial: false });
+                            i += 3; matched = true; continue;
+                        }
+                    }
+                }
+
+                if (i + 1 < flatKeys.length) {
+                    if (current.key === 'adv_part_1' && flatKeys[i+1].key === 'adv_part_2') {
+                        if(current.isFull && flatKeys[i+1].isFull) {
+                            bundles.push({ name: 'Advanced Stratagems', isPartial: false });
+                            i += 2; matched = true; continue;
+                        }
+                    }
+                }
+
+                if (!matched) {
+                    let name = levels[i].name; 
+                    if(name === 'Sub-Junior') name = 'Sub_Junior'; 
+                    bundles.push({ name: name, isPartial: !current.isFull });
+                    i++;
+                }
+            }
+
+            const skus = bundles.map(b => {
+                const nameLower = b.name.toLowerCase();
+                const isMasters = nameLower.includes('junior') || nameLower.includes('senior') || nameLower.includes('master');
+                const isFoundation = !isMasters;
+                
+                let infix = '';
+                if (isFoundation) {
+                    if (classType === 'one_on_one') infix = 'nFPI_'; 
+                    else {
+                        if (region === 'in') infix = 'nRegular_'; 
+                        else infix = 'nFocused_'; 
+                    }
+                } else {
+                    if (classType === 'one_on_one') infix = 'nMPI_'; 
+                    else {
+                        if (region === 'in') infix = 'nPTP_'; 
+                        else infix = 'nBTP_'; 
+                    }
+                }
+                
+                let finalName = b.name;
+                if (b.isPartial) finalName += '_Partial';
+                
+                return regionPrefix + '_' + infix + finalName;
+            });
+            
+            return skus;
         }
 
-        // --- NEW DURATION CALCULATOR (V108.9.3) ---
+        function copyHelperSKU(btn) {
+            const strings = generateCurriculumStrings();
+            if(strings.length === 0) {
+                showToast('No levels parsed', 'error');
+                return;
+            }
+            
+            const textToCopy = strings.join('\n');
+            copyHelperAmount(textToCopy, btn); 
+        }
+
         function calculateAutoPricerDuration() {
             const sessions = calculateAutoPricerSessions();
             if(sessions === 0) return 0;
-            // Approx logic: 1-on-1 is ~8/mo, Group is ~8/mo. Masters differs.
-            // Simplified: Foundation 1-on-1 (20 sessions = 2.5 mo -> 8/mo)
-            // Foundation Group (24 sessions = 3 mo -> 8/mo)
-            // Masters (16 sessions = 2 mo? No, usually slower. Let's use 8/mo base)
             return Math.round((sessions / 8) * 10) / 10;
         }
 
         function calculateAutoPricerSessions() {
             if (!apGlobalState.isParsed) return 0;
             
-            // Re-calculate raw items to count sessions accurately
-            // Copy-paste logic from calculateAutoPricerLevels but return raw items
-            // ... (Simplified: use the levels output to estimate or re-run raw loop)
-            // Let's re-run raw loop for precision
              const allMatches = [...apGlobalState.rawInput.matchAll(/\b([A-Z]+)(\d+)\b/g)];
             const validIndices = [];
             allMatches.forEach(m => { const idx = globalLevelSequence.findIndex(item => item.code === (m[1]+m[2])); if(idx!==-1) validIndices.push(idx); });
@@ -2548,8 +2780,19 @@ textarea {
             const firstIdx = validIndices[0]; const lastIdx = validIndices[validIndices.length-1];
             let total = 0;
             
-            const start = apGlobalState.oppMode === 'current' ? firstIdx : lastIdx + 1;
-            const limit = apGlobalState.oppMode === 'current' ? (lastIdx - firstIdx + 1) : (apGlobalState.bundleMode === '3' ? 3 : (apGlobalState.bundleMode === '6' ? 6 : parseInt(apGlobalState.customCount)));
+            const isCurrent = apGlobalState.oppMode === 'current';
+            const start = isCurrent ? firstIdx : lastIdx + 1;
+            
+            let limit = 0;
+            if(isCurrent) {
+                 if(apGlobalState.bundleMode === 'custom') {
+                   limit = parseInt(apGlobalState.customCount);
+                } else {
+                   limit = (lastIdx - firstIdx + 1);
+                }
+            } else {
+                limit = apGlobalState.bundleMode === '3' ? 3 : (apGlobalState.bundleMode === '6' ? 6 : parseInt(apGlobalState.customCount));
+            }
             
             for(let i=0; i<limit; i++) {
                 const idx = start + i; 
@@ -2565,7 +2808,6 @@ textarea {
             if (!apGlobalState.isParsed) return { fullPrice: 0, finalPrice: 0, discounts: { normal: 0, mgmt: 0, referral: 0 } };
             
             const targetReg = apGlobalState.targetRegion;
-             // Re-run raw loop for precision (same logic as sessions/levels)
             const allMatches = [...apGlobalState.rawInput.matchAll(/\b([A-Z]+)(\d+)\b/g)];
             const validIndices = [];
             allMatches.forEach(m => { const idx = globalLevelSequence.findIndex(item => item.code === (m[1]+m[2])); if(idx!==-1) validIndices.push(idx); });
@@ -2574,8 +2816,19 @@ textarea {
             const firstIdx = validIndices[0]; const lastIdx = validIndices[validIndices.length-1];
             let totalCost = 0;
             
-            const start = apGlobalState.oppMode === 'current' ? firstIdx : lastIdx + 1;
-            const limit = apGlobalState.oppMode === 'current' ? (lastIdx - firstIdx + 1) : (apGlobalState.bundleMode === '3' ? 3 : (apGlobalState.bundleMode === '6' ? 6 : parseInt(apGlobalState.customCount)));
+            const isCurrent = apGlobalState.oppMode === 'current';
+            const start = isCurrent ? firstIdx : lastIdx + 1;
+            
+            let limit = 0;
+            if(isCurrent) {
+                 if(apGlobalState.bundleMode === 'custom') {
+                   limit = parseInt(apGlobalState.customCount);
+                } else {
+                   limit = (lastIdx - firstIdx + 1);
+                }
+            } else {
+                limit = apGlobalState.bundleMode === '3' ? 3 : (apGlobalState.bundleMode === '6' ? 6 : parseInt(apGlobalState.customCount));
+            }
 
              for(let i=0; i<limit; i++) {
                 const idx = start + i; 
@@ -2588,16 +2841,13 @@ textarea {
                 if (isMasters) {
                     const mData = allPrices[targetReg].masters[apGlobalState.classType][item.levelKey];
                     if (mData) { 
-                        const base = Math.floor(mData.price_48 / 3), rem = mData.price_48 % 3, cyclePos = (item.subIndex - 1) % 3;
+                        const base = Math.floor(mData.price_48 / 3); 
+                        const rem = mData.price_48 % 3;
+                        const cyclePos = (item.subIndex - 1) % 3;
                         itemPrice = base + (cyclePos === 2 ? rem : 0);
                     }
                 } else {
                     let fdGroupKey = targetReg === 'in' ? 'regular_group' : 'group';
-                    // FIX: If region is India and using Quick Offers (which defaults to 'group'), check if we are in Custom mode
-                    // Actually, for Auto Pricer, we can check apGlobalState. But apGlobalState only has 'one_on_one' or 'group'.
-                    // For India Auto Pricer, 'group' will default to 'regular_group' pricing unless we add a toggle.
-                    // Given the Auto Pricer UI, let's stick to Regular Group pricing for India 'Group' selection.
-                    
                     const fdPrice = allPrices[targetReg].foundation[apGlobalState.classType === 'one_on_one' ? 'one_on_one' : fdGroupKey][item.levelKey];
                     if (fdPrice) {
                         if (apGlobalState.classType === 'one_on_one') {
@@ -2612,10 +2862,12 @@ textarea {
                 totalCost += itemPrice;
             }
             
+            const refAmt = parseFloat(apGlobalState.referralAmount) || 0;
+            
             return {
                 fullPrice: totalCost,
-                finalPrice: totalCost,
-                discounts: { normal: 0, mgmt: 0, referral: 0 }
+                finalPrice: Math.max(0, totalCost - refAmt),
+                discounts: { normal: 0, mgmt: 0, referral: refAmt }
             };
         }
 
@@ -2624,13 +2876,11 @@ textarea {
             if (key === 'rawInput' || key === 'targetRegion') {
                 const matches = [...apGlobalState.rawInput.matchAll(/\b([A-Z]+)(\d+)\b/g)];
                 if (matches.length > 0) {
-                    // Check if at least one match is valid in our sequence
                     const valid = matches.some(m => globalLevelSequence.findIndex(g => g.code === (m[1]+m[2])) !== -1);
                     if (valid) {
                         apGlobalState.isParsed = true; 
-                        apGlobalState.detectedLevelIndex = 0; // Just a flag now
+                        apGlobalState.detectedLevelIndex = 0; 
                         
-                        // Extract Name
                         const lastMatch = matches[matches.length - 1];
                         const namePart = apGlobalState.rawInput.substring(0, lastMatch.index).trim().split(' ').filter(w => w.length > 2 && !/\d/.test(w));
                         const detectedName = (namePart.filter(n => n !== 'NRNOV24' && n !== 'RENEWAL' && n !== 'NOV25').slice(-2).join(' ')) || "Student";
@@ -2649,8 +2899,14 @@ textarea {
                 if (rs && rs.studentName && rs.studentName.autoPricer) {
                     rs.studentName.autoPricer.name = apGlobalState.customerName;
                 }
+                
+                apGlobalState.referralAmount = referralDefaults[value] || 20;
             }
             
+            if (key === 'customCount') {
+                apGlobalState.bundleMode = 'custom';
+            }
+
             const container = document.getElementById(`tab-content-auto-pricer-${currentRegion}`);
             if(container) { 
                 container.innerHTML = generateAutoPricerHTML(currentRegion); 
@@ -2663,7 +2919,7 @@ textarea {
         }
 
         function generateGlobalConverterHTML(region) {
-            let opts = ''; Object.entries(conversionCurrencies).forEach(([key, info]) => opts += `<option value="${info.code}">${info.emoji} ${info.name} (${info.code})</option>`);
+            let opts = ''; Object.entries(conversionCurrencies).forEach(([key, info]) => opts += `<option value="${info.code}">${info.name} (${info.code})</option>`);
             return `<div class="premium-card global-converter-card">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="w-12 h-12 rounded-full border border-[var(--accent)] flex items-center justify-center text-2xl bg-blue-100 text-blue-700 shadow-md">💱</div>
@@ -2684,10 +2940,7 @@ textarea {
             container.innerHTML = html || '<div class="text-center text-secondary col-span-2 text-sm italic py-4">No countries found.</div>';
         }
         
-        // --- COPY HELPER AMOUNT FUNCTION (NEW) ---
         function copyHelperAmount(amountStr, btn) {
-            // Amount string likely has commas, which is what we want.
-            // Create fallback input
             const el = document.createElement('textarea');
             el.value = amountStr;
             el.setAttribute('readonly', '');
@@ -2711,85 +2964,6 @@ textarea {
             document.body.removeChild(el);
         }
 
-        // ... (Rest of comparison and helper logic remains preserved) ...
-        // [FULL CODE IS INCLUDED TO ENSURE NOTHING IS BROKEN]
-
-        function generateCompareTabHTML(region) { 
-            return `
-                <div class="premium-card">
-                    <h2 class="section-title">⚖️ Comparison</h2>
-                    ${StudentNameController.renderControls(region, 'compare')}
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
-                        <div class="discount-control"><label class="block text-xs font-bold text-accent mb-2 uppercase">Course</label><select id="compare-course-type-${region}" class="input-premium" onchange="updateCompareLevelDropdown('${region}')"><option value="foundation">  Foundation</option><option value="masters">  Masters</option></select></div>
-                        <div class="discount-control"><label class="block text-xs font-bold text-accent mb-2 uppercase">Level</label><select id="compare-level-${region}" class="input-premium"></select></div>
-                        <div class="discount-control"><label class="block text-xs font-bold text-accent mb-2 uppercase">Type</label><select id="compare-class-type-${region}" class="input-premium"></select></div>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full min-w-full text-sm text-left text-secondary">
-                            <thead class="text-[0.65rem] text-accent uppercase tracking-wider" style="background-color: var(--badge-lvl-bg);">
-                                <tr><th scope="col" class="p-3">Feature</th><th scope="col" class="p-3">Option 1</th><th scope="col" class="p-3" style="background-color: rgba(16, 185, 129, 0.1); color: #10b981;">Option 2 (Best  )</th></tr>
-                            </thead>
-                            <tbody class="divide-y" style="border-color:var(--header-border);">
-                                <tr class="hover:bg-[rgba(125,125,125,0.05)]"><td class="p-3 font-semibold text-secondary uppercase text-xs">Package</td><td class="p-3 font-bold text-primary" id="cmp-tbl-pkg-1">--</td><td class="p-3 font-bold text-primary" style="background-color: rgba(16, 185, 129, 0.05);" id="cmp-tbl-pkg-2">--</td></tr>
-                                <tr class="hover:bg-[rgba(125,125,125,0.05)]"><td class="p-3 font-semibold text-secondary uppercase text-xs">Classes</td><td class="p-3 font-bold text-primary" id="cmp-tbl-classes-1">--</td><td class="p-3 font-bold text-primary" style="background-color: rgba(16, 185, 129, 0.05);" id="cmp-tbl-classes-2">--</td></tr>
-                                <tr class="hover:bg-[rgba(125,125,125,0.05)]"><td class="p-3 font-semibold text-secondary uppercase text-xs">Duration</td><td class="p-3 font-bold text-primary" id="cmp-tbl-duration-1">--</td><td class="p-3 font-bold text-primary" style="background-color: rgba(16, 185, 129, 0.05);" id="cmp-tbl-duration-2">--</td></tr>
-                                <tr class="hover:bg-[rgba(125,125,125,0.05)]"><td class="p-3 font-semibold text-secondary uppercase text-xs">Full Price</td><td class="p-3 font-bold text-primary" id="cmp-tbl-full-price-1">--</td><td class="p-3 font-bold text-primary" style="background-color: rgba(16, 185, 129, 0.05);" id="cmp-tbl-full-price-2">--</td></tr>
-                                <tr class="hover:bg-[rgba(125,125,125,0.05)]"><td class="p-3 font-semibold text-secondary uppercase text-xs">Discount</td><td class="p-3 font-bold text-primary" id="cmp-tbl-discount-1">--</td><td class="p-3 font-bold text-primary" style="background-color: rgba(16, 185, 129, 0.05);" id="cmp-tbl-discount-2">--</td></tr>
-                                <tr class="hover:bg-[rgba(125,125,125,0.05)]"><td class="p-3 font-semibold text-secondary uppercase text-xs">Final Price</td><td class="p-3 font-bold text-lg text-primary" id="cmp-tbl-final-price-1">--</td><td class="p-3 font-bold text-lg" style="background-color: rgba(16, 185, 129, 0.05); color: #10b981;" id="cmp-tbl-final-price-2">--</td></tr>
-                                <tr class="hover:bg-[rgba(125,125,125,0.05)]" id="cmp-converted-row-1-${region}" class="hidden"><td class="p-3 font-semibold text-secondary uppercase text-xs">Converted</td><td class="p-3 font-bold text-primary" id="cmp-tbl-converted-1-1">--</td><td class="p-3 font-bold text-primary" style="background-color: rgba(16, 185, 129, 0.05);" id="cmp-tbl-converted-1-2">--</td></tr>
-                                <tr class="hover:bg-[rgba(125,125,125,0.05)]"><td class="p-3 font-semibold text-secondary uppercase text-xs">PPC</td><td class="p-3 font-bold text-primary" id="cmp-tbl-ppc-1">--</td><td class="p-3 font-bold" style="background-color: rgba(16, 185, 129, 0.05); color: #10b981;" id="cmp-tbl-ppc-2">--</td></tr>
-                                <tr class="hover:bg-[rgba(125,125,125,0.05)]"><td class="p-3 font-semibold text-secondary uppercase text-xs">Savings</td><td class="p-3 font-bold text-primary" id="cmp-tbl-savings-1">--</td><td class="p-3 font-bold text-lg" style="background-color: rgba(16, 185, 129, 0.05); color: #10b981;" id="cmp-tbl-savings-2">--</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    ${createPriceConverterHTML(region, 'compare')}
-                </div>
-            `; 
-        }
-        
-        function updateCompareLevelDropdown(region) {
-            const cType = document.getElementById(`compare-course-type-${region}`).value, lDrop = document.getElementById(`compare-level-${region}`), clsDrop = document.getElementById(`compare-class-type-${region}`), data = allPrices[region];
-            lDrop.innerHTML = ''; (cType === 'foundation' ? foundationLevels : mastersLevels).forEach((k, i) => { if(cType==='foundation' && i===foundationLevels.length-1) return; lDrop.innerHTML += `<option value="${k}">${cType==='foundation'?foundationLevelNames[k]:mastersLevelNames[k]}</option>`; });
-            clsDrop.innerHTML = `<option value="one_on_one">One-on-One</option>`; if(cType==='foundation') { clsDrop.innerHTML += `<option value="regular_group">${data.foundation.groupName}</option>`; if(region==='in') clsDrop.innerHTML += `<option value="focused_group">${data.foundation.groupName2}</option>`; } else { clsDrop.innerHTML += `<option value="group">${data.masters.groupName}</option>`; }
-            updateCompareTab(region);
-        }
-        
-        function updateCompareTab(region) {
-            const p = allPrices[region], c = p.currency, cType = document.getElementById(`compare-course-type-${region}`).value, lKey = document.getElementById(`compare-level-${region}`).value;
-            let clsType = document.getElementById(`compare-class-type-${region}`).value;
-            const discounts = getActiveDiscounts(region, 'full_single'), totalDisc = discounts.normal + discounts.mgmt + discounts.referral;
-            if(cType==='foundation') {
-                if(region!=='in' && clsType==='regular_group') clsType='group';
-                const str = classStructure[`foundation_${clsType}`], pr = p.foundation[clsType], l1P = pr[lKey], l2Key = foundationLevels[foundationLevels.indexOf(lKey)+1], l2P = pr[lKey]+pr[l2Key];
-                const final1 = Math.floor(l1P*(1-totalDisc/100)), final2 = Math.floor(l2P*(1-totalDisc/100));
-                updateText(`cmp-tbl-pkg-1`, foundationLevelNames[lKey]); updateText(`cmp-tbl-pkg-2`, `${foundationLevelNames[lKey]} + ${foundationLevelNames[l2Key]}`);
-                updateText(`cmp-tbl-duration-1`, `~${str.duration} ${str.duration_unit}`); updateText(`cmp-tbl-duration-2`, `~${str.duration*2} ${str.duration_unit}`);
-                updateText(`cmp-tbl-classes-1`, `${str.total} Classes`); updateText(`cmp-tbl-classes-2`, `${str.total*2} Classes`);
-                updateText(`cmp-tbl-full-price-1`, formatCurrency(l1P, c)); updateText(`cmp-tbl-full-price-2`, formatCurrency(l2P, c));
-                updateText(`cmp-tbl-final-price-1`, formatCurrency(final1, c)); updateText(`cmp-tbl-final-price-2`, formatCurrency(final2, c));
-                updateText(`cmp-tbl-ppc-1`, `${formatCurrency(final1/str.total, c, true)}/c`); updateText(`cmp-tbl-ppc-2`, `${formatCurrency(final2/(str.total*2), c, true)}/c`);
-                updateText(`cmp-tbl-savings-1`, `Save ${formatCurrency(l1P-final1, c)}`); updateText(`cmp-tbl-savings-2`, `Save ${formatCurrency(l2P-final2, c)}`);
-                const cnvRow = document.getElementById(`cmp-converted-row-1-${region}`);
-                if(getRegionState(region).conversionShowInOutput[`${region}-compare`] && getRegionState(region).conversionEnabled[`${region}-compare`]) {
-                   const tCurr = getRegionState(region).conversionEnabled[`${region}-compare`]; const baseCode = conversionCurrencies[region].code;
-                   const c1 = convertPrice(final1, baseCode, tCurr); const c2 = convertPrice(final2, baseCode, tCurr);
-                   if(c1!==null) { cnvRow.style.display='table-row'; const sym = Object.values(conversionCurrencies).find(x=>x.code===tCurr).symbol; updateText(`cmp-tbl-converted-1-1`, `${sym}${Math.floor(c1).toLocaleString()}`); updateText(`cmp-tbl-converted-1-2`, `${sym}${Math.floor(c2).toLocaleString()}`); }
-                } else { cnvRow.style.display='none'; }
-            } else {
-                if(clsType!=='one_on_one') clsType='group';
-                const str = classStructure[`masters_${clsType}`], pr = p.masters[clsType][lKey], p1 = pr.price_48, p2 = pr.price_96;
-                const f1 = Math.floor(p1*(1-totalDisc/100)), f2 = Math.floor(p2*(1-totalDisc/100));
-                updateText(`cmp-tbl-pkg-1`, `${mastersLevelNames[lKey]} (48)`); updateText(`cmp-tbl-pkg-2`, `${mastersLevelNames[lKey]} (96)`);
-                updateText(`cmp-tbl-duration-1`, `~${str.partial_duration} ${str.duration_unit}`); updateText(`cmp-tbl-duration-2`, `~${str.duration} ${str.duration_unit}`);
-                updateText(`cmp-tbl-classes-1`, `${str.partial_total} Classes`); updateText(`cmp-tbl-classes-2`, `${str.total} Classes`);
-                updateText(`cmp-tbl-full-price-1`, formatCurrency(p1, c)); updateText(`cmp-tbl-full-price-2`, formatCurrency(p2, c));
-                updateText(`cmp-tbl-final-price-1`, formatCurrency(f1, c)); updateText(`cmp-tbl-final-price-2`, formatCurrency(f2, c));
-                updateText(`cmp-tbl-ppc-1`, `${formatCurrency(f1/str.partial_total, c, true)}/c`); updateText(`cmp-tbl-ppc-2`, `${formatCurrency(f2/str.total, c, true)}/c`);
-                updateText(`cmp-tbl-savings-1`, `Save ${formatCurrency(p1-f1, c)}`); updateText(`cmp-tbl-savings-2`, `Save ${formatCurrency(p2-f2, c)}`);
-            }
-            updateText(`cmp-tbl-discount-1`, `${totalDisc.toFixed(2)}%`); updateText(`cmp-tbl-discount-2`, `${totalDisc.toFixed(2)}%`);
-        }
-
         async function fetchExchangeRates() { try { const response = await fetch('https://api.frankfurter.app/latest?from=USD'); const data = await response.json(); globalConversionRates = { 'USD': 1, 'AED': data.rates.AED || 3.67, 'INR': data.rates.INR || 83.12, 'GBP': data.rates.GBP || 0.79, 'EUR': data.rates.EUR || 0.92, 'SGD': data.rates.SGD || 1.35, 'AUD': data.rates.AUD || 1.52, 'CAD': data.rates.CAD || 1.36, 'QAR': data.rates.QAR || 3.64, 'ZAR': data.rates.ZAR || 18.75, 'SEK': data.rates.SEK || 10.54, 'KWD': 0.31, 'SAR': 3.75, 'BHD': 0.38, 'OMR': 0.385 }; globalConversionTimestamp = Date.now(); return true; } catch (error) { console.error(error); return false; } }
         
         async function refreshRates(region, idPrefix) { const btn = document.getElementById(`refresh-rates-${idPrefix}-${region}`); if(btn) { btn.disabled = true; btn.innerHTML = `${icons.refresh} Refreshing...`; } await fetchExchangeRates(); if(btn) { btn.disabled = false; btn.innerHTML = `${icons.refresh} Refresh`; } if(idPrefix==='global') updateGlobalConverter(region); else ConverterController.triggerUpdate(region, idPrefix); }
@@ -2798,10 +2972,10 @@ textarea {
 
         function showInternalTab(region, tabName) { 
             currentActiveTab = tabName; 
-            ['full', 'compare', 'custom-fd', 'custom-ms', 'global-conv', 'auto-pricer'].forEach(t => { const c = document.getElementById(`tab-content-${t}-${region}`); if(c) c.classList.add('hidden'); const b = document.getElementById(`tab-btn-${t}-${region}`); if(b) b.classList.remove('active'); }); 
+            ['full', 'custom-fd', 'custom-ms', 'global-conv', 'auto-pricer'].forEach(t => { const c = document.getElementById(`tab-content-${t}-${region}`); if(c) c.classList.add('hidden'); const b = document.getElementById(`tab-btn-${t}-${region}`); if(b) b.classList.remove('active'); }); 
             document.getElementById(`tab-content-${tabName}-${region}`).classList.remove('hidden'); document.getElementById(`tab-btn-${tabName}-${region}`).classList.add('active'); 
-            if(tabName==='compare') updateCompareLevelDropdown(region); 
-            else if(tabName==='full') { populateBenefits(region, 'full'); renderFullOffers(region); ConverterController.triggerUpdate(region, 'full'); } 
+            
+            if(tabName==='full') { populateBenefits(region, 'full'); renderFullOffers(region); ConverterController.triggerUpdate(region, 'full'); } 
             else if(tabName==='custom-fd') { populateBenefits(region, 'foundation'); calculateCustomPackage(region, 'foundation'); ConverterController.triggerUpdate(region, 'foundation'); } 
             else if(tabName==='custom-ms') { populateBenefits(region, 'masters'); calculateCustomPackage(region, 'masters'); ConverterController.triggerUpdate(region, 'masters'); } 
             else if(tabName==='global-conv') { updateGlobalConverter(region); }
@@ -2809,6 +2983,7 @@ textarea {
         }
 
         function showCalculator(region) { 
+            const previousRegion = currentRegion;
             currentRegion = region; 
             if(document.querySelector('.region-pill.active')) document.querySelector('.region-pill.active').classList.remove('active'); 
             document.getElementById(`nav-${region}`).classList.add('active'); 
@@ -2841,6 +3016,133 @@ textarea {
                 showInternalTab(region, currentActiveTab);
             }
             wrapper.classList.remove('hidden');
+
+            if (previousRegion && previousRegion !== region && appState[previousRegion]) {
+                synchronizeRegionInputs(previousRegion, region);
+            }
+        }
+
+        function synchronizeRegionInputs(from, to) {
+            ['full', 'foundation', 'masters', 'autoPricer'].forEach(t => {
+                const name = StudentNameController.getStudentName(from, t);
+                const show = StudentNameController.getShowStudentName(from, t);
+                StudentNameController.setStudentName(to, t, name);
+                StudentNameController.setShowStudentName(to, t, show);
+                
+                const input = document.getElementById(`student-name-input-${t}-${to}`);
+                if(input) input.value = name;
+                const toggle = document.getElementById(`student-name-toggle-${t}-${to}`);
+                if(toggle) toggle.checked = show;
+            });
+
+            const fromClassTypeGlobal = document.querySelector(`input[name="class-type-global-${from}"]:checked`)?.value;
+            if(fromClassTypeGlobal) {
+                const toRadio = document.querySelector(`input[name="class-type-global-${to}"][value="${fromClassTypeGlobal}"]`);
+                if(toRadio) {
+                    toRadio.checked = true;
+                }
+            }
+            
+            const fromStartLevel = document.getElementById(`upsell-filter-${from}`)?.value;
+            if(fromStartLevel && fromStartLevel !== 'none') {
+                const toSelect = document.getElementById(`upsell-filter-${to}`);
+                if(toSelect) toSelect.value = fromStartLevel;
+            }
+
+            ['foundation', 'masters'].forEach(cType => {
+                const fromType = document.querySelector(`input[name="class-type-${cType}-${from}"]:checked`)?.value;
+                if(fromType) {
+                    let targetValue = fromType;
+                    if(fromType === 'focused_group' || fromType === 'regular_group') targetValue = 'group';
+                    
+                    const toRadio = document.querySelector(`input[name="class-type-${cType}-${to}"][value="${targetValue}"]`);
+                    if(toRadio) toRadio.checked = true;
+                }
+
+                const levels = cType === 'foundation' ? foundationLevels : mastersLevels;
+                levels.forEach(lvl => {
+                    for(let i=1; i<=6; i++) { 
+                         const fromChk = document.getElementById(`chk-${from}-${cType}-${lvl}-sub${i}`);
+                         const toChk = document.getElementById(`chk-${to}-${cType}-${lvl}-sub${i}`);
+                         if(fromChk && toChk) {
+                             toChk.checked = fromChk.checked;
+                         }
+                    }
+                });
+            });
+
+            const idPrefixes = ['full', 'foundation', 'masters']; 
+            
+            idPrefixes.forEach(prefix => {
+                const disc = getActiveDiscounts(from, prefix);
+                
+                const toNormCheck = document.getElementById(`discount-enable-normal-${prefix}-${to}`);
+                const toNormInput = document.getElementById(`discount-input-normal-${prefix}-${to}`);
+                if(toNormCheck) toNormCheck.checked = document.getElementById(`discount-enable-normal-${prefix}-${from}`)?.checked;
+                if(toNormInput) toNormInput.value = disc.normal;
+
+                const toMgmtCheck = document.getElementById(`discount-enable-mgmt-${prefix}-${to}`);
+                const toMgmtInput = document.getElementById(`discount-input-mgmt-${prefix}-${to}`);
+                if(toMgmtCheck) toMgmtCheck.checked = document.getElementById(`discount-enable-mgmt-${prefix}-${from}`)?.checked;
+                if(toMgmtInput) toMgmtInput.value = disc.mgmt;
+
+                const toRefCheck = document.getElementById(`discount-enable-referral-${prefix}-${to}`);
+                if(toRefCheck) toRefCheck.checked = document.getElementById(`discount-enable-referral-${prefix}-${from}`)?.checked;
+                
+                const fromRefBadgeToggle = document.getElementById(`referral-show-toggle-${prefix}-${from}`);
+                const toRefBadgeToggle = document.getElementById(`referral-show-toggle-${prefix}-${to}`);
+                if(fromRefBadgeToggle && toRefBadgeToggle) toRefBadgeToggle.checked = fromRefBadgeToggle.checked;
+                
+                const rsFrom = getRegionState(from);
+                const rsTo = getRegionState(to);
+                rsTo.bannerSettings = { ...rsFrom.bannerSettings };
+                
+                const banToggle = document.getElementById(`banner-toggle-${prefix}-${to}`);
+                if(banToggle) banToggle.checked = rsTo.bannerSettings.showBanner;
+                
+                if(PPCController.states[`${to}-${prefix}`]) {
+                    PPCController.states[`${to}-${prefix}`] = false; 
+                    PPCController.renderState(to, prefix);
+                }
+                
+                if(prefix !== 'full') {
+                    if(rsFrom.roadmapData) {
+                        rsTo.roadmapData = JSON.parse(JSON.stringify(rsFrom.roadmapData));
+                        
+                        const toShowToggle = document.getElementById(`roadmap-show-toggle-${prefix}-${to}`);
+                        if(toShowToggle) toShowToggle.checked = rsFrom.roadmapData[`${prefix}-show`];
+                        
+                        renderTimelineContainer(to, prefix);
+                        
+                        const count = rsTo.roadmapData.count || 3;
+                        for(let i=1; i<=count; i++) {
+                            const lbl = rsTo.roadmapData[`${prefix}-${i}-label`];
+                            const lInput = document.getElementById(`roadmap-label-${i}-${prefix}-${to}`);
+                            const lDisp = document.getElementById(`roadmap-lbl-display-${i}-${prefix}-${to}`);
+                            if(lInput) lInput.value = lbl;
+                            if(lDisp) lDisp.textContent = lbl;
+                            
+                            const dateVal = document.getElementById(`roadmap-date-${i}-${prefix}-${from}`)?.value;
+                            const percVal = document.getElementById(`roadmap-percent-${i}-${prefix}-${from}`)?.value;
+                            
+                            const toDate = document.getElementById(`roadmap-date-${i}-${prefix}-${to}`);
+                            const toPerc = document.getElementById(`roadmap-percent-${i}-${prefix}-${to}`);
+                            if(toDate) toDate.value = dateVal;
+                            if(toPerc) toPerc.value = percVal;
+                        }
+                        
+                        const cont = document.getElementById(`roadmap-container-${prefix}-${to}`);
+                        if(cont) {
+                            if(rsTo.roadmapData[`${prefix}-show`]) cont.classList.remove('hidden');
+                            else cont.classList.add('hidden');
+                        }
+                    }
+                }
+            });
+            
+            if(currentActiveTab === 'full') recalcFullOffers(to);
+            else if(currentActiveTab === 'custom-fd') calculateCustomPackage(to, 'foundation');
+            else if(currentActiveTab === 'custom-ms') calculateCustomPackage(to, 'masters');
         }
         
         function togglePPCVisibility(region, idPrefix) { const rs = getRegionState(region); rs.showPPCInOutput[`${region}-${idPrefix}`] = !rs.showPPCInOutput[`${region}-${idPrefix}`]; idPrefix === 'full' ? recalcFullOffers(region) : calculateCustomPackage(region, idPrefix); }
@@ -2853,27 +3155,59 @@ textarea {
         function getRelevantBenefits(r, crs, cls) { let b = [...benefitsData.all, ...benefitsData.default]; if(cls.includes('group')) b.push(...benefitsData.group); else b.push(...benefitsData.one_on_one); if(crs==='masters') { b.push(...benefitsData.masters); if(cls==='one_on_one') b.push(...benefitsData.masters_one_on_one_exclusive); } return [...new Set(b)]; }
         function populateBenefits(region, idPrefix) { 
             const rs = getRegionState(region), sKey = idPrefix==='full'?'full':(idPrefix==='foundation'?'customFd':'customMs'), list = document.getElementById(`available-benefits-list-${idPrefix}-${region}`); if(!list) return; 
-            let crs, cls; if(idPrefix==='full') { crs='masters'; const radio = document.querySelector(`input[name="class-type-global-${region}"]:checked`); cls = radio ? radio.value : 'one_on_one'; } else { crs=idPrefix; cls=document.querySelector(`input[name="class-type-${crs}-${region}"]:checked`)?.value||'one_on_one'; } 
-            rs[sKey].selected = [...rs[sKey].defaults]; list.innerHTML=''; 
-            getRelevantBenefits(region, crs, cls).forEach(t => { const isDef = rs[sKey].defaults.includes(t), item = document.createElement('div'); item.className='benefit-item'; item.innerHTML=`<span class="benefit-item-text">${t}</span><button type="button" class="benefit-btn star ${isDef?'active':''}" onclick="toggleDefaultBenefit('${region}','${idPrefix}', \`${t.replace(/`/g, '\\`')}\`)">${icons.star}</button><button type="button" class="benefit-btn benefit-btn-add" onclick="addBenefit('${region}','${idPrefix}', \`${t.replace(/`/g, '\\`')}\`)">${icons.plus}</button>`; list.appendChild(item); }); renderSelectedBenefits(region, idPrefix); 
+            let crs, cls; 
+            if(idPrefix==='full') { 
+                crs='masters'; 
+                const radio = document.querySelector(`input[name="class-type-global-${region}"]:checked`); 
+                cls = radio ? radio.value : 'one_on_one'; 
+            } else { 
+                crs=idPrefix; 
+                cls=document.querySelector(`input[name="class-type-${crs}-${region}"]:checked`)?.value||'one_on_one'; 
+            } 
+            
+            if(rs[sKey].selected.length === 0) rs[sKey].selected = [...rs[sKey].defaults]; 
+            
+            list.innerHTML=''; 
+            
+            getRelevantBenefits(region, crs, cls).forEach(t => { 
+                const isDef = rs[sKey].defaults.includes(t); 
+                const item = document.createElement('div'); 
+                item.className='benefit-item'; 
+                item.innerHTML=`<span class="benefit-item-text">${t}</span><button type="button" class="benefit-btn star ${isDef?'active':''}" onclick="toggleDefaultBenefit('${region}','${idPrefix}', \`${t.replace(/`/g, '\\`')}\`)">${icons.star}</button><button type="button" class="benefit-btn benefit-btn-add" onclick="addBenefit('${region}','${idPrefix}', \`${t.replace(/`/g, '\\`')}\`)">${icons.plus}</button>`; 
+                list.appendChild(item); 
+            }); 
+            renderSelectedBenefits(region, idPrefix); 
         }
+
         function addBenefit(r, p, t) { const k = p==='full'?'full':(p==='foundation'?'customFd':'customMs'), rs = getRegionState(r); if(!rs[k].selected.includes(t)){ rs[k].selected.push(t); renderSelectedBenefits(r, p); } }
         function addCustomBenefit(r, p) { const i = document.getElementById(`custom-benefit-input-${p}-${r}`); if(i.value.trim()){ addBenefit(r, p, i.value.trim()); i.value=''; } }
         function removeBenefit(r, p, idx) { const k = p==='full'?'full':(p==='foundation'?'customFd':'customMs'); getRegionState(r)[k].selected.splice(idx, 1); renderSelectedBenefits(r, p); }
         function toggleDefaultBenefit(r, p, t) { const k = p==='full'?'full':(p==='foundation'?'customFd':'customMs'), rs = getRegionState(r), idx = rs[k].defaults.indexOf(t), btn = event.target.closest('.star'); if(idx>-1) { rs[k].defaults.splice(idx,1); btn.classList.remove('active'); const sIdx = rs[k].selected.indexOf(t); if(sIdx>-1) removeBenefit(r, p, sIdx); } else { rs[k].defaults.push(t); btn.classList.add('active'); addBenefit(r, p, t); } }
-        function renderSelectedBenefits(r, p) { const k = p==='full'?'full':(p==='foundation'?'customFd':'customMs'), l = document.getElementById(`selected-benefits-list-${p}-${r}`); if(!l)return; const rs = getRegionState(r); l.innerHTML = rs[k].selected.length===0 ? '<li class="benefit-item text-secondary italic">None.</li>' : ''; rs[k].selected.forEach((t, i) => { const item = document.createElement('div'); item.className='benefit-item'; 
-            item.innerHTML=`<span class="benefit-item-text">${t}</span><button type="button" class="benefit-btn benefit-btn-remove" onclick="removeBenefit('${r}', '${p}', ${i})">${icons.minus}</button>`; 
-            l.appendChild(item); 
-        }); 
-        p==='full' ? recalcFullOffers(r) : calculateCustomPackage(r, p); 
-    }
+        
+        function renderSelectedBenefits(r, p) { 
+            const k = p==='full'?'full':(p==='foundation'?'customFd':'customMs');
+            const l = document.getElementById(`selected-benefits-list-${p}-${r}`); 
+            if(!l) return; 
+            
+            const rs = getRegionState(r); 
+            l.innerHTML = rs[k].selected.length===0 ? '<li class="benefit-item text-secondary italic">None.</li>' : ''; 
+            
+            rs[k].selected.forEach((t, i) => { 
+                const item = document.createElement('div'); 
+                item.className='benefit-item'; 
+                item.innerHTML=`<span class="benefit-item-text">${t}</span><button type="button" class="benefit-btn benefit-btn-remove" onclick="removeBenefit('${r}', '${p}', ${i})">${icons.minus}</button>`; 
+                l.appendChild(item); 
+            }); 
+            
+            p==='full' ? recalcFullOffers(r) : calculateCustomPackage(r, p); 
+        }
         
     window.addEventListener('DOMContentLoaded', async () => { 
         const regs = Object.keys(regionNames); 
         document.getElementById('region-nav').innerHTML = regs.map(r => `<button id="nav-${r}" onclick="showCalculator('${r}')" class="region-pill">${regionNames[r]}</button>`).join(''); 
         await fetchExchangeRates(); 
         showCalculator(regs[0]); 
-        console.log("V108.18: Grandmaster Edition Loaded (UI Polish & Dark Mode Fix)"); 
+        console.log("V108.44: Grandmaster Edition Loaded (Price Fix - USA/WW Separated)"); 
     });
     </script>
 </body>
